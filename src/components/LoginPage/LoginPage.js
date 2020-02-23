@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './LoginPage.css';
 import { Link, Redirect } from 'react-router-dom';
+import { api } from '../../utilities';
 
 import Navbar from '../Navbar/index';
 import axios from 'axios';
@@ -48,7 +49,7 @@ export default function LoginPage(props) {
         password: state.password
       };
       axios
-        .post('/login', user)
+        .post(api + '/login', user)
         .then(res => {
           if(res.data.error){
             setState({
