@@ -1,4 +1,4 @@
-const api = 'http://basketballstats.us-west-1.elasticbeanstalk.com'
+const api = 'http://basketballstats2.us-west-1.elasticbeanstalk.com'
 
 export { api };
 
