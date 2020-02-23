@@ -1,0 +1,8 @@
+#team-dashboard-content {
+  border: 1px solid red;
+  margin: 40px auto 0 280px;
+}
+#team-dashboard-items {
+  border: 1px solid green;
+  width: 96%;
+}

@@ -1,0 +1,107 @@
+#registeruser-page-content{
+    margin: 80px auto 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 5px gray;
+    width: 375px;
+    color: rgb(0, 0, 48);
+}
+
+#registeruser-form{
+    padding: 8px 4px 30px 0;
+    width: 260px;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+#registeruser-already-account{
+    text-decoration: none;
+    color: rgb(45, 86, 199);
+}
+
+#await-confirm{
+    padding: 10px;
+    width: 280px;
+    margin: 0 auto;
+    font-family: 'Roboto';
+    text-align: center;
+    color: rgb(0, 0, 72);
+}
+
+#continue-btn-small{
+    background: rgb(242, 44, 0);
+    border-radius: 2px;
+    padding: 2px 12px;
+    font-size: 10px;
+    color: white;
+    margin-left: 2px;
+}
+#continue-btn-big{
+    background: rgb(242, 44, 0);
+    border-radius: 2px;
+    padding: 6px;
+    font-size: 18px;
+    width: 60%;
+    margin: 30px auto 15px auto;
+    color: white;
+    box-shadow: 0 2px 6px 0 rgb(176, 176, 176);
+    cursor: pointer;
+}
+
+#continue-btn-big:hover{
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px 0 rgb(165, 165, 165);
+}
+
+#create-your-account{
+    font-size: 26px;
+    font-weight: bold;
+}
+
+#already-have-account{
+    margin-top: -20px;
+    font-size: 14px;
+    opacity: 70%;
+    margin-bottom: 20px;
+}
+
+#registeruser-input-item{
+    margin: 0 0 15px 0;
+}
+
+#registeruser-input-label{
+    display: block;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#registeruser-input{
+    margin: 4px 0 0 0;
+    font-family: 'Roboto';
+    width: 250px;
+    border-radius: 3px;
+    border: 1px solid rgb(183, 183, 183);
+    height: 30px;
+    padding: 1px 0 0 8px;
+    font-size: 16px;
+}
+
+#registeruser-input:focus{
+    outline: 1px solid rgb(60, 229, 255);
+    border: 1px solid rgb(244, 244, 244);
+}
+
+#registeruser-validation-error{
+    color: rgb(255, 68, 68);
+}
+
+#create-account-btn{
+    margin: 14px 0 0 0;
+    background: rgb(255, 89, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 4px;
+    text-align: center;
+    padding: 10px 5px;
+    box-shadow: 2px 4px 5px -2px rgb(186, 186, 186);
+    cursor: pointer;
+}

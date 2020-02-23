@@ -1,0 +1,83 @@
+#navbar-container {
+  top: 0px;
+  left: 0px;
+  height: 60px;
+  background-color: rgb(242, 252, 255);
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  box-shadow: 0 0 8px rgb(164, 164, 164);
+}
+
+#nav-logo {
+  text-decoration: none;
+  display: flex;
+  position: absolute;
+  top: 0px;
+  left: 30px;
+  height: 60px;
+  align-items: center;
+}
+
+#nav-logo-img {
+  max-height: 50px;
+}
+
+#nav-logo-title {
+  font-family: 'Roboto', sans-serif;
+  margin-left: -2px;
+  font-weight: bold;
+  font-size: 28px;
+  color: rgb(37, 37, 118);
+}
+
+#login-link {
+  margin-right: 25px;
+  text-decoration: none;
+  color: rgb(31, 48, 116);
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+#less-link {
+  margin-right: 25px;
+  text-decoration: none;
+  color: rgb(86, 148, 219);
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#login-link:hover {
+  opacity: 70%;
+  cursor: pointer;
+}
+
+#register-link {
+  margin-right: 25px;
+  border-radius: 4px;
+  background-color: #ef3b24;
+  color: white;
+  padding: 8px 12px;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#register-link:hover {
+  background-color: rgb(255, 112, 93);
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  #nav-logo-title {
+    display: none;
+  }
+  #nav-logo-img {
+    max-height: 55px;
+  }
+}
