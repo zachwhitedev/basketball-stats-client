@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './ConfirmationPage.css';
 import axios from 'axios';
 import { Link, Redirect } from 'react-router-dom';
+import { api } from '../../utilities';
 
 import Navbar from '../Navbar/index';
 
@@ -16,7 +17,7 @@ export default function ConfirmationPage(props) {
       confirmstring: pathname.slice(-15)
     };
     axios
-      .post('/confirmuser', confirmStringRequest)
+      .post(api + '/confirmuser', confirmStringRequest)
       .then(res => {
         setState({
           ...state,
