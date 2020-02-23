@@ -52,7 +52,7 @@
 }
 
 #login-link:hover {
-  opacity: 70%;
+  opacity: .8;
   cursor: pointer;
 }
 
