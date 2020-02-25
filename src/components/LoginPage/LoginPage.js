@@ -26,6 +26,10 @@ export default function LoginPage(props) {
 
   const handleSubmit = e => {
     e.preventDefault();
+    setState({
+      ...state,
+      validationError: ''
+    });
     const { dispatch } = props;
     if (
       !state.email ||
