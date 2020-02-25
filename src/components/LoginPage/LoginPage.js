@@ -55,6 +55,7 @@ export default function LoginPage(props) {
       axios
         .post(api + '/login', user)
         .then(res => {
+          console.log(res);
           if (res.data.error) {
             setState({
               ...state,
