@@ -66,7 +66,10 @@ export default function LoginPage(props) {
             dispatch(getUserData());
             setState({ redirect: true });
           } else {
-            setState({ ...state, validationError: 'No token in response. Please contact support.' })
+            setState({
+              ...state,
+              validationError: 'No token in response. Please contact support.'
+            });
           }
         })
         .catch(err => console.log(err));
