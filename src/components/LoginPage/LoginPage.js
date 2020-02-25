@@ -51,15 +51,18 @@ export default function LoginPage(props) {
       axios
         .post(api + '/login', user)
         .then(res => {
-          if(res.data.error){
+          if (res.data.error) {
             setState({
               ...state,
               validationError: res.data.error
-            })
+            });
+          } else if (res.data.token) {
+            localStorage.setItem('token', res.data.token);
+            dispatch(getUserData());
+            setState({ redirect: true });
+          } else {
+            setState({ ...state, validationError: 'No token in response. Please contact support.' })
           }
-          localStorage.setItem('token', res.data);
-          dispatch(getUserData());
-          setState({ redirect: true });
         })
         .catch(err => console.log(err));
     }
