@@ -8,7 +8,7 @@ export default function Navbar() {
     <div id='navbar-container'>
         <Link id='nav-logo' to='/'>
             <img id='nav-logo-img' src={basketball} />
-            <h1 id='nav-logo-title'>Basketball</h1>
+            <h1 id='nav-logo-title'>Testing</h1>
         </Link>
       <div id='nav-link-item'>
         <Link id='less-link' to='/support'>
