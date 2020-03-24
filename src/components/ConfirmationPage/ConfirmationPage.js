@@ -17,7 +17,7 @@ export default function ConfirmationPage(props) {
       confirmstring: pathname.slice(-15)
     };
     axios
-      .post(api + '/confirmuser', confirmStringRequest)
+      .post('https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/confirmEmail', confirmStringRequest)
       .then(res => {
         setState({
           ...state,
