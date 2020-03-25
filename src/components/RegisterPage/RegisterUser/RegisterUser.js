@@ -59,10 +59,13 @@ export default function RegisterUser(props) {
       return;
     } else {
       const user = {
-        email: state.email,
-        firstname: state.firstname,
-        lastname: state.lastname,
-        password: state.password
+        headers: {"Access-Control-Allow-Origin": "*"},
+        body: JSON.stringify({
+          email: state.email,
+          firstname: state.firstname,
+          lastname: state.lastname,
+          password: state.password
+        })
       };
       dispatch(registerUser(user));
     }
