@@ -64,7 +64,6 @@ export default function RegisterUser(props) {
           lastname: state.lastname,
           password: state.password
       };
-      console.log('ppopp')
       dispatch(registerUser(user));
     }
   };

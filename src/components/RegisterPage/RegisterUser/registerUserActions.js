@@ -4,7 +4,7 @@ const axios = require('axios');
 export function registerUser(newUser) {
   return {
     type: 'REGISTER_USER',
-    payload: axios.post(api + '/register', newUser)
+    payload: JSON/parse(axios.post(api + '/register', newUser))
   }
 }
 
