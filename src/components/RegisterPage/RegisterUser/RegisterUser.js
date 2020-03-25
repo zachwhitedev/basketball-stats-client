@@ -59,7 +59,6 @@ export default function RegisterUser(props) {
       return;
     } else {
       const user = {
-        headers: {"Access-Control-Allow-Origin": "*"},
           email: state.email,
           firstname: state.firstname,
           lastname: state.lastname,
