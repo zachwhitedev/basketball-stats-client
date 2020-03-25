@@ -3,7 +3,7 @@ import './RegisterUser.css';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import { registerUser, clearErrors } from './registerUserActions';
-import Axios from 'axios';
+import axios from 'axios';
 import sendemail from '../../../assets/img/sendemail.png';
 
 export default function RegisterUser(props) {
