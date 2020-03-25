@@ -53,7 +53,7 @@ export default function LoginPage(props) {
         password: state.password
       };
       axios
-        .post(api + '/login', user)
+        .post('https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/login', user)
         .then(res => {
           console.log(res);
           if (res.data.error) {
