@@ -54,7 +54,7 @@ export default function LoginPage(props) {
       axios
         .post('https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/login', user)
         .then(res => {
-          console.log(res);
+          console.log(res.data.body.token);
           if (res.data.body.error) {
             setState({
               ...state,
