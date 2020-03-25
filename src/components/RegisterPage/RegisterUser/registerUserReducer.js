@@ -12,7 +12,7 @@ export default function registerUserReducer(state = defaultState, action) {
     case 'REGISTER_USER_FULFILLED': {
       return {
         ...state,
-        userData: payload.data,
+        userData: JSON.parse(payload),
         errorString: payload.data.body.error
       };
     }
