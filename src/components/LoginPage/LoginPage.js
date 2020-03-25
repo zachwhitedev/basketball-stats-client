@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './LoginPage.css';
 import { Link, Redirect } from 'react-router-dom';
-import { api } from '../../utilities';
 
 import Navbar from '../Navbar/index';
 import axios from 'axios';
@@ -56,13 +55,13 @@ export default function LoginPage(props) {
         .post('https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/login', user)
         .then(res => {
           console.log(res);
-          if (res.data.error) {
+          if (res.data.body.error) {
             setState({
               ...state,
               validationError: res.data.error
             });
-          } else if (res.data.token) {
-            localStorage.setItem('token', data.body.token);
+          } else if (res.data.body.token) {
+            localStorage.setItem('token', res.data.body.token);
             dispatch(getUserData());
             setState({ redirect: true });
           } else {
