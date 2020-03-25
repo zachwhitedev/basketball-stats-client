@@ -55,6 +55,7 @@ export default function LoginPage(props) {
         .post('https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/login', user)
         .then(res => {
           const data = JSON.parse(res.data.body);
+          console.log(data);
           if (data.error) {
             setState({
               ...state,
