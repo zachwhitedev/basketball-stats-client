@@ -2,9 +2,10 @@ import { api } from '../../../utilities';
 const axios = require('axios');
 
 export function registerUser(newUser) {
+  console.log('newUser', newUser)
   return {
     type: 'REGISTER_USER',
-    payload: JSON/parse(axios.post(api + '/register', newUser))
+    payload: axios.post(api + '/register', newUser)
   }
 }
 
