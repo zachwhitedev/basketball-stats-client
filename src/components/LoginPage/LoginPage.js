@@ -59,7 +59,7 @@ export default function LoginPage(props) {
           if (data.error) {
             setState({
               ...state,
-              validationError: res.data.error
+              validationError: data.error
             });
           } else if (data.token) {
             localStorage.setItem('token', data.token);
