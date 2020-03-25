@@ -54,14 +54,15 @@ export default function LoginPage(props) {
       axios
         .post('https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/login', user)
         .then(res => {
-          console.log(res.data.body.token);
-          if (res.data.body.error) {
+          const data = JSON.parse(res.data.body);
+          console.log(data.token);
+          if (data.error) {
             setState({
               ...state,
               validationError: res.data.error
             });
-          } else if (res.data.body.token) {
-            localStorage.setItem('token', res.data.body.token);
+          } else if (data.token) {
+            localStorage.setItem('token', data.token);
             dispatch(getUserData());
             setState({ redirect: true });
           } else {
