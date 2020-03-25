@@ -10,11 +10,10 @@ export default function registerUserReducer(state = defaultState, action) {
     ///////////////////////////////////////////////////////////
 
     case 'REGISTER_USER_FULFILLED': {
-      console.log(payload);
       return {
         ...state,
         userData: payload.data,
-        errorString: payload.data.error
+        errorString: payload.data.body.error
       };
     }
 
