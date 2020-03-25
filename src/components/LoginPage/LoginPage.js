@@ -62,7 +62,7 @@ export default function LoginPage(props) {
               validationError: res.data.error
             });
           } else if (res.data.token) {
-            localStorage.setItem('token', res.data.token);
+            localStorage.setItem('token', data.body.token);
             dispatch(getUserData());
             setState({ redirect: true });
           } else {
