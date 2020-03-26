@@ -14,7 +14,6 @@ export default function UserDashboard(props) {
 
   return (
     <div id='user-dashboard-container'>
-      <UserSideNav />
       <div id='user-dashboard-content'>show teams here</div>
     </div>
   );
