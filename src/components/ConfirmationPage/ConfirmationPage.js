@@ -20,10 +20,10 @@ export default function ConfirmationPage(props) {
     axios
       .post('https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/confirmEmail', confirmStringRequest)
       .then(res => {
-        console.log(res);
+        const success = JSON.parse(res.data.body);
         setState({
           ...state,
-          successMsg: res.data
+          successMsg: success.message
         });
       })
       .catch(err => console.log(err));
