@@ -3,7 +3,6 @@ import './RegisterUser.css';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import { registerUser, clearErrors } from './registerUserActions';
-import axios from 'axios';
 import sendemail from '../../../assets/img/sendemail.png';
 
 export default function RegisterUser(props) {
@@ -77,7 +76,11 @@ export default function RegisterUser(props) {
     dispatch(clearErrors());
   };
 
-  if (!state.completed) {
+  useEffect(() => {
+    console.log(props.registerError.length)
+  })
+
+  if(props.registerError.length === 0 && !props.completed){
     return (
       <div id='registeruser-page-content'>
         <div id='registeruser-form'>

@@ -12,6 +12,7 @@ export default function ConfirmationPage(props) {
   });
 
   useEffect(() => {
+    console.log('yeehaw');
     let pathname = window.location.pathname;
     let confirmStringRequest = {
       confirmstring: pathname.slice(-15)
@@ -19,13 +20,14 @@ export default function ConfirmationPage(props) {
     axios
       .post('https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/confirmEmail', confirmStringRequest)
       .then(res => {
+        console.log(res);
         setState({
           ...state,
-          successMsg: res.data.success
+          successMsg: res.data
         });
       })
       .catch(err => console.log(err));
-  }, []);
+  });
 
   if (!state.successMsg) {
     return (

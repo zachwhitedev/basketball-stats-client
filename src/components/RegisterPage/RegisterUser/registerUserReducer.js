@@ -1,4 +1,8 @@
 const defaultState = {
+  userData: {
+    error: ''
+  },
+  completed: false,
   errorString: ''
 };
 
@@ -9,10 +13,21 @@ export default function registerUserReducer(state = defaultState, action) {
     ///////////////////////////////////////////////////////////
 
     case 'REGISTER_USER_FULFILLED': {
+      const data = payload.data;
+        return {
+          ...state,
+          userData: data,
+          errorString: data.error,
+          completed: true
+        };
+      }
+
+    ///////////////////////////////////////////////////////////
+
+    case 'REGISTER_USER_REJECTED': {
       return {
         ...state,
-        errorString: '',
-        userData: JSON.parse(payload.data.body)
+        errorString: 'Promise rejected.',
       };
     }
 
@@ -28,7 +43,6 @@ export default function registerUserReducer(state = defaultState, action) {
     ///////////////////////////////////////////////////////////
 
     default: {
-      console.log('sdfvsdvsdfvsdfvsvf')
       return state;
     }
   }
