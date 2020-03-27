@@ -3,7 +3,7 @@ import UserDashboard from './UserDashboard';
 
 function mapStoreToProps(store) {
   return {
-    userData: store.loginPage.userData
+    teams: store.userDashboard.teams.data.teamdata
   };
 }
 export default connect(mapStoreToProps)(UserDashboard);

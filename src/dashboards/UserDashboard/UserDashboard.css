@@ -1,8 +1,19 @@
 #user-dashboard-content {
-  border: 1px solid red;
+  background-color: white;
   margin: 40px auto 0 280px;
+  padding: 10px;
+  border-radius: 6px;
+  width: 310px;
 }
 #user-dashboard-items {
   border: 1px solid green;
   width: 96%;
+}
+
+#user-dashboard-add-team-btn{
+  background-color: rgb(103, 255, 103);
+  border: 1px solid green;
+  text-align: center;
+  width: 90px;
+  padding: 4px 6px;
 }
