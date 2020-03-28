@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './UserDashboard.css';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
-import UserSideNav from './TeamSideNav/TeamSideNav';
-import { getUserData } from '../UserDashboard/userDashboardActions';
+import { getUserData, selectTeam } from '../UserDashboard/userDashboardActions';
+import TeamListItem from './TeamListItem/index';
 
 export default function UserDashboard(props) {
   const { dispatch } = props;
@@ -24,7 +24,14 @@ export default function UserDashboard(props) {
       <div id='user-dashboard-content'>
         <div id='user-dashboard-add-team-btn'>Add Team</div>
         <h1>Your Teams</h1>
-      {props.teams[0] ? props.teams.map(team => {return <h3>{team.team_name}</h3>}) : ''}
+      {props.teams[0] ? props.teams.map(team => {
+        return (
+        <TeamListItem
+          teamname={team.name}
+          teamid={team.id}
+        />
+        )
+        }) : ''}
       </div>
     </div>
   );

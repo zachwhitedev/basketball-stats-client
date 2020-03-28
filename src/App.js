@@ -13,6 +13,7 @@ import LoginPage from './components/LoginPage/index';
 import RegisterPage from './components/RegisterPage/index';
 import ConfirmationPage from './components/ConfirmationPage/index';
 import UserDashboard from './dashboards/UserDashboard/index';
+import TeamDashboard from './dashboards/TeamDashboard/index';
 import PricingPage from './components/PricingPage/index';
 import SupportPage from './components/SupportPage/index';
 
@@ -35,6 +36,23 @@ function App() {
           <LandingPage />
         </Route>
         <Route
+          path='/login'
+          exact
+          render={() => {
+            if (!localStorage.getItem('token')) {
+              return <LoginPage />;
+            } else {
+              return (
+                <Redirect
+                  to={{
+                    pathname: '/dashboard'
+                  }}
+                />
+              );
+            }
+          }}
+        ></Route>
+        <Route
           path='/dashboard'
           exact
           render={() => {
@@ -52,16 +70,15 @@ function App() {
           }}
         ></Route>
         <Route
-          path='/login'
-          exact
+          path='/team'
           render={() => {
-            if (!localStorage.getItem('token')) {
-              return <LoginPage />;
+            if (localStorage.getItem('token')) {
+              return <TeamDashboard />;
             } else {
               return (
                 <Redirect
                   to={{
-                    pathname: '/dashboard'
+                    pathname: '/login'
                   }}
                 />
               );

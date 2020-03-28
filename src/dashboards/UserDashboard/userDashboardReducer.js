@@ -1,10 +1,10 @@
 const defaultState = {
-    teams: {
-      data: {
-        teamdata: {}
-      }
+    error: '',
+    data: {
+      teams: [],
+      players: []
     },
-    error: ''
+    selectedTeam: {}
   };
   
   export default function userDashboardReducer(state = defaultState, action) {
@@ -14,10 +14,17 @@ const defaultState = {
       case 'GET_USER_DATA_FULFILLED': {
         return {
           ...state,
-          teams: payload
+          data: payload.data.data
         };
       }
-  
+
+      case 'SELECT_TEAM': {
+        return {
+          ...state,
+          selectedTeam: payload
+        };
+      }
+      
       case 'GET_USER_DATA_REJECTED': {
         console.log('there was a problem getting this user\'s data')
       }
