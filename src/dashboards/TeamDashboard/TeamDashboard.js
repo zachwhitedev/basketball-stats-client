@@ -9,13 +9,13 @@ import { getTeam, getUserData } from '../UserDashboard/userDashboardActions';
 export default function TeamDashboard(props) {
   const { dispatch } = props;
 
-  const[state, setState] = useState({
+  const [state, setState] = useState({
     loading: true,
     token: localStorage.getItem('token')
-  })
+  });
 
   useEffect(() => {
-    if(!props.selectedTeam.name){
+    if (!props.selectedTeam.name) {
       const decoded = jwt_decode(state.token);
       const userid = decoded.id;
       dispatch(getUserData(userid));
@@ -26,7 +26,7 @@ export default function TeamDashboard(props) {
     } else {
       console.log('litty'); // hmmm....
     }
-  })
+  });
 
   return (
     <div id='team-dashboard-container'>
