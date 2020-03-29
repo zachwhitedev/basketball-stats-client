@@ -14,13 +14,13 @@ export function selectTeam(team) {
   };
 }
 
-export function getTeam(userid, teamid){
+export function getCurrentTeam(userid, teamid){
   const teamRequest = {
     userid: userid,
     teamid: teamid
   }
   return {
-    type: 'GET_USER_DATA',
-    payload: axios.get(`https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/getteam`, teamRequest) // lambda doesn't exist yet
+    type: 'GET_CURRENT_TEAM',
+    payload: axios.post('https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/getteam', teamRequest)
   };
 }

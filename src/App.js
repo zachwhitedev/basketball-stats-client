@@ -32,8 +32,23 @@ function App() {
     <Router>
       <BackgroundColor />
       <Switch>
-        <Route path='/' exact>
-          <LandingPage />
+        <Route 
+        path='/' 
+        exact
+        render={() => {
+            if (localStorage.getItem('token')) {
+              return <TeamDashboard />;
+            } else {
+              return (
+                <Redirect
+                  to={{
+                    pathname: '/'
+                  }}
+                />
+              );
+            }
+          }}
+        >
         </Route>
         <Route
           path='/login'
@@ -85,8 +100,22 @@ function App() {
             }
           }}
         ></Route>
-        <Route path='/register' exact>
-          <RegisterPage />
+        <Route path='/register' exact
+        render={() => {
+          if (localStorage.getItem('token')) {
+            return < Redirect to='/dashboard' />
+          } else {
+            return (
+              <Redirect
+                to={{
+                  pathname: '/register'
+                }}
+              />
+            );
+          }
+        }}
+        >
+          
         </Route>
         <Route path='/support' exact>
           <SupportPage />

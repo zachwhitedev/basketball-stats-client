@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
 import TeamSideNav from '../UserDashboard/TeamSideNav/TeamSideNav';
-import { getTeam, getUserData } from '../UserDashboard/userDashboardActions';
+import { getCurrentTeam, getUserData } from '../UserDashboard/userDashboardActions';
 
 export default function TeamDashboard(props) {
   const { dispatch } = props;
@@ -15,16 +15,17 @@ export default function TeamDashboard(props) {
   });
 
   useEffect(() => {
-    if (!props.selectedTeam.name) {
+    console.log('useEffect, TeamDashboard,js, line 18');
+    if (!props.selectedTeam.id) {
       const decoded = jwt_decode(state.token);
-      const userid = decoded.id;
+      const userid = decoded.userid;
       dispatch(getUserData(userid));
 
       const pathsArray = window.location.pathname.split('/');
-      const teamId = pathsArray[1];
-      dispatch(getTeam(userid, teamId));
+      const teamId = pathsArray[3];
+      dispatch(getCurrentTeam(userid, teamId));
     } else {
-      console.log('litty'); // hmmm....
+      console.log('loading...'); // hmmm....
     }
   });
 
