@@ -5,8 +5,6 @@ import { Link, Redirect } from 'react-router-dom';
 import Navbar from '../Navbar/index';
 import axios from 'axios';
 
-import { loginUser as getUserData } from './loginPageActions';
-
 export default function LoginPage(props) {
   const [state, setState] = useState({
     email: '',
@@ -29,7 +27,6 @@ export default function LoginPage(props) {
       ...state,
       validationError: ''
     });
-    const { dispatch } = props;
     if (
       !state.email ||
       !state.email.includes('@') ||
@@ -63,8 +60,7 @@ export default function LoginPage(props) {
             });
           } else if (data.token) {
             localStorage.setItem('token', data.token);
-            dispatch(getUserData());
-            setState({ redirect: true });
+            setState({ ...state, redirect: true });
           } else {
             setState({
               ...state,

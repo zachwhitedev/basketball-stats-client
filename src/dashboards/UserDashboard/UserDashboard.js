@@ -9,20 +9,35 @@ import TeamListItem from './TeamListItem/index';
 export default function UserDashboard(props) {
   const { dispatch } = props;
   const[state, setState] = useState({
-    userData: jwt_decode(localStorage.getItem('token')),
-    token: localStorage.getItem('token')
+    loggedOut: false
   })
   
   useEffect(() => {
-    const decoded = jwt_decode(state.token);
-    console.log(props.teams);
-    dispatch(getUserData(decoded.userid));
-  }, [state.token]);
+    if(localStorage.getItem('token')){
+      const decoded = jwt_decode(localStorage.getItem('token'));
+      dispatch(getUserData(decoded.userid));
+    } else {
+      setState({
+        ...state,
+        loggedOut: true
+      })
+    }
+  }, [state.token, state.loggedOut]);
+
+  const logOut = () => {
+    localStorage.clear();
+    setState({
+      ...state,
+      loggedOut: true
+    })
+  }
 
   return (
     <div id='user-dashboard-container'>
+      {state.loggedOut && <Redirect to='/' />}
       <div id='user-dashboard-content'>
         <div id='user-dashboard-add-team-btn'>Add Team</div>
+        <div id='user-dashboard-add-team-btn' onClick={logOut}>Logout</div>
         <h1>Your Teams</h1>
       {props.teams[0] ? props.teams.map(team => {
         return (

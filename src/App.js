@@ -39,13 +39,7 @@ function App() {
             if (localStorage.getItem('token')) {
               return <Redirect to='/dashboard'/>;
             } else {
-              return (
-                <Redirect
-                  to={{
-                    pathname: '/'
-                  }}
-                />
-              );
+              return <LandingPage />
             }
           }}
         >
