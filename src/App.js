@@ -37,7 +37,7 @@ function App() {
         exact
         render={() => {
             if (localStorage.getItem('token')) {
-              return <TeamDashboard />;
+              return <Redirect to='/dashboard'/>;
             } else {
               return (
                 <Redirect
@@ -105,13 +105,7 @@ function App() {
           if (localStorage.getItem('token')) {
             return < Redirect to='/dashboard' />
           } else {
-            return (
-              <Redirect
-                to={{
-                  pathname: '/register'
-                }}
-              />
-            );
+            return <RegisterPage />;
           }
         }}
         >

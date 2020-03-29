@@ -15,8 +15,7 @@ export default function TeamDashboard(props) {
   });
 
   useEffect(() => {
-    console.log('useEffect, TeamDashboard,js, line 18');
-    if (!props.selectedTeam.id) {
+      console.log('useEffect, TeamDashboard,js, line 18');
       const decoded = jwt_decode(state.token);
       const userid = decoded.userid;
       dispatch(getUserData(userid));
@@ -24,28 +23,28 @@ export default function TeamDashboard(props) {
       const pathsArray = window.location.pathname.split('/');
       const teamId = pathsArray[3];
       dispatch(getCurrentTeam(userid, teamId));
-    } else {
-      console.log('loading...'); // hmmm....
-    }
-  });
+  }, [props.selectedTeam.id]);
 
-  return (
-    <div id='team-dashboard-container'>
-      <div id='team-dashboard-content'>
-        <div id='team-dashboard-items'>
-          Team: {props.selectedTeam.name}
-          <div>
-            <div>top card 1</div>
-            <div>top card 2</div>
-            <div>top card 3</div>
-            <div>top card 4</div>
+  if(props.selectedTeam.fetched){
+    return (
+      <div id='team-dashboard-container'>
+        <div id='team-dashboard-content'>
+          <div id='team-dashboard-items'>
+            {props.selectedTeam.name}
           </div>
-          <div id='players-and-games'>
-            <div>players table</div>
-            <div>game list</div>
-          </div>
+          {props.players && props.players.map(player => {
+            return(
+            <p>{player.firstname}</p>
+            )
+          })}
         </div>
       </div>
+    );
+  } else return(
+    <div id='team-dashboard-container'>
+      <div id='team-dashboard-content'>
+        Loading...
+      </div>
     </div>
-  );
+  ) 
 }
