@@ -30,7 +30,7 @@ export default function TeamDashboard(props) {
       <div id='team-dashboard-container'>
         <div id='team-dashboard-content'>
           <div id='team-dashboard-items'>
-            {props.selectedTeam.name}
+            <p><b>{props.selectedTeam.name}</b></p>
           </div>
           {props.players && props.players.map(player => {
             return(
