@@ -30,7 +30,6 @@ export default function userDashboardReducer(state = defaultState, action) {
     }
 
     case 'GET_CURRENT_TEAM_FULFILLED': {
-      console.log('payload', payload);
       return {
         ...state,
         selectedTeam: {

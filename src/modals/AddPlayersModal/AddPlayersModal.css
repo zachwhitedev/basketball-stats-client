@@ -1,0 +1,86 @@
+#addplayers-modal-shadow{
+    z-index: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background-color: black;
+    opacity: .5;
+}
+
+#addplayers-modal-container{
+    position: fixed; 
+    padding: 10px;
+    z-index: 0;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    width: 50%;
+    min-width: 290px;
+    min-height: 220px;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 1px 1px 5px rgb(53, 53, 53);
+    background-color: white;
+}
+
+#addplayers-modal-content{
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#addplayers-modal-buttons-container{
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    margin: 20px auto 0 auto;
+}
+
+#addplayers-modal-buttons-container > div {
+    border: 1px solid gray;
+    width: 40%;
+    padding: 12px 8px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+#addplayers-modal-player-inputs-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#player-input-order{
+    width: 5%;
+    font-size: 28;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(34, 34, 34);
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#player-firstname-input{
+    padding-left: 4px;
+    font-size: 16px;
+    width: 34%;
+    border: 1px solid rgb(51, 51, 51);
+    height: 30px;
+}
+#player-lastname-input{
+    font-size: 16px;
+    padding-left: 4px;
+    width: 34%;
+    border: 1px solid rgb(51, 51, 51);
+    height: 30px;
+    
+}
+#player-jersey-input{
+    font-size: 16px;
+    width: 15%;
+    height: 30px;
+    border: 1px solid rgb(51, 51, 51);
+    max-width: 40px;
+    text-align: center;
+}

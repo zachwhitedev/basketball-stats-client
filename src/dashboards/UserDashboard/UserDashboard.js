@@ -17,6 +17,8 @@ export default function UserDashboard(props) {
   const [showAddTeamModal, setAddTeamModal] = useState(false);
 
   const changeModal = () => {
+    const decoded = jwt_decode(localStorage.getItem('token'));
+    dispatch(getUserData(decoded.userid)); // yes!! one more tymmmeeee
     setAddTeamModal(!showAddTeamModal);
   };
 

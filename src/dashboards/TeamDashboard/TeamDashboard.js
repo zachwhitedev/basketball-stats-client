@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './TeamDashboard.css';
 import Navbar from '../../components/Navbar/index';
-import AddPlayersModal from '../../modals/AddPlayersModal/AddPlayersModal';
+import AddPlayersModal from '../../modals/AddPlayersModal/index';
 import { Link } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
-import TeamSideNav from '../UserDashboard/TeamSideNav/TeamSideNav';
 import {
   getCurrentTeam,
   getUserData
@@ -20,6 +19,20 @@ export default function TeamDashboard(props) {
     token: localStorage.getItem('token')
   });
 
+  const changeModal = () => {
+    const pathsArray = window.location.pathname.split('/');
+    const teamId = pathsArray[3];
+    const decoded = jwt_decode(state.token);
+    const userid = decoded.userid;
+    dispatch(getUserData(userid));
+    dispatch(getCurrentTeam(userid, teamId));
+    
+    setState({
+      ...state,
+      addingPlayers: !state.addingPlayers
+    })
+  }
+
   useEffect(() => {
     console.log('useEffect, TeamDashboard,js, line 23');
     const decoded = jwt_decode(state.token);
@@ -29,14 +42,15 @@ export default function TeamDashboard(props) {
     const pathsArray = window.location.pathname.split('/');
     const teamId = pathsArray[3];
     dispatch(getCurrentTeam(userid, teamId));
-  }, [props.selectedTeam.id]);
+  }, [props.selectedTeam.id, state.addingPlayers]);
 
   if (props.selectedTeam.fetched) {
     return (
       <div id='team-dashboard-container'>
-        {state.addingPlayers && <AddPlayersModal />}
+        <Navbar />
+        {state.addingPlayers && <AddPlayersModal changeModal={changeModal} />}
         <div id='team-dashboard-content'>
-          <Navbar />
+        <div onClick={() => changeModal()}>Add Players</div>
           <div id='team-dashboard-items'>
             <p>
               <b>{props.selectedTeam.name}</b>
@@ -47,6 +61,7 @@ export default function TeamDashboard(props) {
               return <p>{player.firstname}</p>;
             })}
         </div>
+        
       </div>
     );
   } else

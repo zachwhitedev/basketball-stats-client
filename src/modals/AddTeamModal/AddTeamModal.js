@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './AddTeamModal.css';
 import jwt_decode from 'jwt-decode';
 
-import { addNewTeam } from './addTeamModalActions';
+import { addNewTeam } from '../modalActions';
 import { getUserData } from '../../dashboards/UserDashboard/userDashboardActions';
 
 export default function AddTeamModal(props) {
