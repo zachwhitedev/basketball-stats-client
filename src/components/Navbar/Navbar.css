@@ -51,6 +51,11 @@
   font-size: 20px;
 }
 
+#less-link:hover {
+  cursor: pointer;
+  opacity: .85;
+}
+
 #login-link:hover {
   opacity: .8;
   cursor: pointer;
