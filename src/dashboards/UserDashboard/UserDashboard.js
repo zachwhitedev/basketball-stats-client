@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './UserDashboard.css';
 import Navbar from '../../components/Navbar/index';
-import AddTeamModal from '../../modals/AddTeamModal/AddTeamModal';
+import AddTeamModal from '../../modals/AddTeamModal/index';
 import { Link, Redirect } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
@@ -21,6 +21,7 @@ export default function UserDashboard(props) {
   };
 
   useEffect(() => {
+    console.log('useEffect, UserDashboard, line 24');
     if (localStorage.getItem('token')) {
       const decoded = jwt_decode(localStorage.getItem('token'));
       dispatch(getUserData(decoded.userid));
@@ -30,19 +31,19 @@ export default function UserDashboard(props) {
         loggedOut: true
       });
     }
-  }, [state.token, state.loggedOut]);
+  }, [state.token, state.loggedOut, props.teams.length]);
 
   return (
     <div id='user-dashboard-container'>
       <Navbar />
-      {showAddTeamModal && <AddTeamModal />}
+      {showAddTeamModal && <AddTeamModal changeModal={changeModal}/>}
       {state.loggedOut && <Redirect to='/' />}
       <div id='user-dashboard-content'>
         <div id='user-dashboard-add-team-btn' onClick={changeModal}>
           Add Team
         </div>
         <h1>Your Teams</h1>
-        {props.teams[0] ? (
+        {props.teams ? (
           props.teams.map(team => {
             return <TeamListItem teamname={team.name} teamid={team.id} />;
           })

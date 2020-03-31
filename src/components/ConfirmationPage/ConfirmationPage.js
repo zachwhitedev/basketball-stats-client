@@ -12,7 +12,7 @@ export default function ConfirmationPage(props) {
   });
 
   useEffect(() => {
-    console.log('yeehaw');
+    console.log('useEffect, ConfirmationPage, line 15');
     let pathname = window.location.pathname;
     let confirmStringRequest = {
       confirmstring: pathname.slice(-15)

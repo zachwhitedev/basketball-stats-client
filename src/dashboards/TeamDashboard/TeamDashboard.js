@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './TeamDashboard.css';
 import Navbar from '../../components/Navbar/index';
+import AddPlayersModal from '../../modals/AddPlayersModal/AddPlayersModal';
 import { Link } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
@@ -15,12 +16,12 @@ export default function TeamDashboard(props) {
 
   const [state, setState] = useState({
     loading: true,
-    addingTeam: false,
+    addingPlayers: false,
     token: localStorage.getItem('token')
   });
 
   useEffect(() => {
-    console.log('useEffect, TeamDashboard,js, line 18');
+    console.log('useEffect, TeamDashboard,js, line 23');
     const decoded = jwt_decode(state.token);
     const userid = decoded.userid;
     dispatch(getUserData(userid));
@@ -33,6 +34,7 @@ export default function TeamDashboard(props) {
   if (props.selectedTeam.fetched) {
     return (
       <div id='team-dashboard-container'>
+        {state.addingPlayers && <AddPlayersModal />}
         <div id='team-dashboard-content'>
           <Navbar />
           <div id='team-dashboard-items'>

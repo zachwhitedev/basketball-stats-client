@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './TeamListItem.css';
 import jwt_decode from 'jwt-decode';
 import { Link, Redirect } from 'react-router-dom';
 import { selectTeam } from '../userDashboardActions';
@@ -26,7 +27,7 @@ export default function TeamListItem(props){
     }
 
     return(
-        <div onClick={() => viewTeam(props.teamid, props.teamname)}>
+        <div id='team-list-item' onClick={() => viewTeam(props.teamid, props.teamname)}>
             <h3>{props.teamname}</h3>
         </div>
     )

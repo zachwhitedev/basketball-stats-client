@@ -1,9 +1,10 @@
 #user-dashboard-content {
   background-color: white;
-  margin: 100px auto 0 280px;
+  margin: 100px auto 0 auto;
   padding: 10px;
   border-radius: 6px;
   width: 310px;
+  min-height: 160px;
 }
 #user-dashboard-items {
   border: 1px solid green;

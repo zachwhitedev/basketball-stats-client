@@ -77,6 +77,7 @@ export default function RegisterUser(props) {
   };
 
   useEffect(() => {
+    console.log('useEffect, RegisterUSer, line 80');
     console.log(props.registerError.length)
   })
 

@@ -19,21 +19,20 @@
     margin-right: auto; 
     width: 50%;
     min-width: 290px;
-    height: 120px;
+    min-height: 220px;
+    height: auto;
     border-radius: 6px;
     box-shadow: 1px 1px 5px rgb(53, 53, 53);
     background-color: white;
 }
 
 #addteam-modal-content{
-    border: 1px solid red;
     width: 90%;
     display: block;
     margin: 0 auto;
 }
 
 #addteam-modal-buttons-container{
-    border: 1px solid red;
     width: 90%;
     display: flex;
     justify-content: space-around;
@@ -46,4 +45,19 @@
     padding: 12px 8px;
     text-align: center;
     border-radius: 4px;
+}
+
+#addteam-modal-input-teamname{
+    margin: 4px 0 0 0;
+    font-family: 'Roboto';
+    width: 250px;
+    border-radius: 3px;
+    border: 1px solid rgb(183, 183, 183);
+    height: 30px;
+    padding: 1px 0 0 8px;
+    font-size: 16px;
+}
+#addteam-modal-input-teamname:focus{
+    outline: 1px solid rgb(60, 229, 255);
+    border: 1px solid rgb(244, 244, 244);
 }
