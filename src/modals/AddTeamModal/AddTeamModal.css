@@ -47,6 +47,11 @@
     border-radius: 4px;
 }
 
+#addteam-modal-buttons-container > div:hover {
+    border: 1px solid rgb(30, 173, 255);
+    cursor: pointer;
+}
+
 #addteam-modal-input-teamname{
     margin: 4px 0 0 0;
     font-family: 'Roboto';
