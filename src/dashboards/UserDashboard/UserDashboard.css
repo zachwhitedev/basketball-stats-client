@@ -18,3 +18,12 @@
   width: 90px;
   padding: 4px 6px;
 }
+
+#user-dashboard-add-team-btn:hover{
+  cursor: pointer;
+  background-color: rgb(136, 255, 136);
+  border: 1px solid green;
+  text-align: center;
+  width: 90px;
+  padding: 4px 6px;
+}
