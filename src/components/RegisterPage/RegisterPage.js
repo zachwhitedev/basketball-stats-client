@@ -3,7 +3,6 @@ import './RegisterPage.css';
 import { Link } from 'react-router-dom';
 
 import RegisterUser from './RegisterUser/index';
-import RegisterTeam from './RegisterTeam/index';
 
 import Navbar from '../Navbar/index';
 

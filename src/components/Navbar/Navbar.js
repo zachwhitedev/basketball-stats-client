@@ -58,11 +58,11 @@ const UserNav = () => {
           Teams
         </Link>
       </div>
-      <div id='nav-link-item'>
+      {/* <div id='nav-link-item'>
         <Link id='login-link' to='/games'>
           Games
         </Link>
-      </div>
+      </div> */}
       <div id='nav-link-item'>
         <Link id='less-link' to='/support'>
           Support

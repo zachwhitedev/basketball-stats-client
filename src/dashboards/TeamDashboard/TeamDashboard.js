@@ -50,15 +50,17 @@ export default function TeamDashboard(props) {
         <Navbar />
         {state.addingPlayers && <AddPlayersModal changeModal={changeModal} />}
         <div id='team-dashboard-content'>
-        <div onClick={() => changeModal()}>Add Players</div>
+        <div id='team-dashboard-addplayers-btn' onClick={() => changeModal()}>Add Players</div>
           <div id='team-dashboard-items'>
             <p>
-              <b>{props.selectedTeam.name}</b>
+              <h2>{props.selectedTeam.name} Roster</h2>
             </p>
           </div>
           {props.players &&
             props.players.map(player => {
-              return <p>{player.firstname}</p>;
+              return(
+                <p>{player.firstname + ' ' + player.lastname + ' #' + player.jersey}</p>
+              ) 
             })}
         </div>
         

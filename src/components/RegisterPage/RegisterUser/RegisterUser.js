@@ -77,8 +77,8 @@ export default function RegisterUser(props) {
   };
 
   useEffect(() => {
-    console.log('useEffect, RegisterUSer, line 80');
-    console.log(props.registerError.length)
+    console.log('useEffect, RegisterUser.js');
+    console.log(props.registerError);
   })
 
   if(props.registerError.length === 0 && !props.completed){
