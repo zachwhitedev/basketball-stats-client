@@ -26,24 +26,28 @@ export default function TeamDashboard(props) {
     const userid = decoded.userid;
     dispatch(getUserData(userid));
     dispatch(getCurrentTeam(userid, teamId));
-    
+
     setState({
       ...state,
       addingPlayers: !state.addingPlayers
-    })
-  }
+    });
+  };
 
   useEffect(() => {
     console.log('useEffect, TeamDashboard,js, line 23');
     const decoded = jwt_decode(state.token);
     const userid = decoded.userid;
     dispatch(getUserData(userid));
-    setTimeout(() => {dispatch(getUserData(userid))}, 2500);
+    setTimeout(() => {
+      dispatch(getUserData(userid));
+    }, 1000);
 
     const pathsArray = window.location.pathname.split('/');
     const teamId = pathsArray[3];
     dispatch(getCurrentTeam(userid, teamId));
-    setTimeout(() => {dispatch(getCurrentTeam(userid, teamId))}, 2500);
+    setTimeout(() => {
+      dispatch(getCurrentTeam(userid, teamId));
+    }, 1000);
   }, [props.selectedTeam.id, state.addingPlayers]);
 
   if (props.selectedTeam.fetched) {
@@ -52,7 +56,9 @@ export default function TeamDashboard(props) {
         <Navbar />
         {state.addingPlayers && <AddPlayersModal changeModal={changeModal} />}
         <div id='team-dashboard-content'>
-        <div id='team-dashboard-addplayers-btn' onClick={() => changeModal()}>Add Players</div>
+          <div id='team-dashboard-addplayers-btn' onClick={() => changeModal()}>
+            Add Players
+          </div>
           <div id='team-dashboard-items'>
             <p>
               <h2>{props.selectedTeam.name} Roster</h2>
@@ -60,12 +66,17 @@ export default function TeamDashboard(props) {
           </div>
           {props.players &&
             props.players.map(player => {
-              return(
-                <p>{player.firstname + ' ' + player.lastname + ' #' + player.jersey}</p>
-              ) 
+              return (
+                <p>
+                  {player.firstname +
+                    ' ' +
+                    player.lastname +
+                    ' #' +
+                    player.jersey}
+                </p>
+              );
             })}
         </div>
-        
       </div>
     );
   } else

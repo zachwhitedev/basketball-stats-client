@@ -19,7 +19,9 @@ export default function UserDashboard(props) {
   const changeModal = () => {
     const decoded = jwt_decode(localStorage.getItem('token'));
     dispatch(getUserData(decoded.userid)); // yes!! one more tymmmeeee
-    setTimeout(() => {dispatch(getUserData(decoded.userid))}, 2500);
+    setTimeout(() => {
+      dispatch(getUserData(decoded.userid));
+    }, 1000);
     setAddTeamModal(!showAddTeamModal);
   };
 
@@ -39,7 +41,7 @@ export default function UserDashboard(props) {
   return (
     <div id='user-dashboard-container'>
       <Navbar />
-      {showAddTeamModal && <AddTeamModal changeModal={changeModal}/>}
+      {showAddTeamModal && <AddTeamModal changeModal={changeModal} />}
       {state.loggedOut && <Redirect to='/' />}
       <div id='user-dashboard-content'>
         <div id='user-dashboard-add-team-btn' onClick={changeModal}>
