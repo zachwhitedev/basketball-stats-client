@@ -40,14 +40,14 @@ export default function TeamDashboard(props) {
     dispatch(getUserData(userid));
     setTimeout(() => {
       dispatch(getUserData(userid));
-    }, 1000);
+    }, 600);
 
     const pathsArray = window.location.pathname.split('/');
     const teamId = pathsArray[3];
     dispatch(getCurrentTeam(userid, teamId));
     setTimeout(() => {
       dispatch(getCurrentTeam(userid, teamId));
-    }, 1000);
+    }, 600);
   }, [props.selectedTeam.id, state.addingPlayers]);
 
   if (props.selectedTeam.fetched) {
