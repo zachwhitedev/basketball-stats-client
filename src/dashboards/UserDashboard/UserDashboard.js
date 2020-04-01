@@ -19,7 +19,7 @@ export default function UserDashboard(props) {
   const changeModal = () => {
     const decoded = jwt_decode(localStorage.getItem('token'));
     dispatch(getUserData(decoded.userid)); // yes!! one more tymmmeeee
-    setTimeout(dispatch(getUserData(decoded.userid)), 2500);
+    setTimeout(() => {dispatch(getUserData(decoded.userid))}, 2500);
     setAddTeamModal(!showAddTeamModal);
   };
 
