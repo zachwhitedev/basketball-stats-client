@@ -38,10 +38,12 @@ export default function TeamDashboard(props) {
     const decoded = jwt_decode(state.token);
     const userid = decoded.userid;
     dispatch(getUserData(userid));
+    setTimeout(dispatch(getUserData(userid)), 2500);
 
     const pathsArray = window.location.pathname.split('/');
     const teamId = pathsArray[3];
     dispatch(getCurrentTeam(userid, teamId));
+    setTimeout(dispatch(getCurrentTeam(userid, teamId)), 2500);
   }, [props.selectedTeam.id, state.addingPlayers]);
 
   if (props.selectedTeam.fetched) {
