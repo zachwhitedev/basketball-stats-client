@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './TeamDashboard.css';
 import Navbar from '../../components/Navbar/index';
 import AddPlayersModal from '../../modals/AddPlayersModal/index';
+import PlayerListItem from './PlayerListItem/PlayerListItem';
 import { Link } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
@@ -66,14 +67,13 @@ export default function TeamDashboard(props) {
           </div>
           {props.players &&
             props.players.map(player => {
-              return ( // make this a component called PlayerListItem
-                <p> 
-                  {player.firstname +
-                    ' ' +
-                    player.lastname +
-                    ' #' +
-                    player.jersey}
-                </p>
+              return (
+                <PlayerListItem 
+                id={player.id}
+                firstname={player.firstname} 
+                lastname={player.lastname} 
+                jersey={player.jersey} 
+                />
               );
             })}
         </div>

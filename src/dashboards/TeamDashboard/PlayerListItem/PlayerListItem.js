@@ -1,5 +1,6 @@
 import React from 'react';
-
+import jwt_decode from 'jwt-decode';
+import './PlayerListItem.css';
 import { deletePlayer } from '../../UserDashboard/userDashboardActions';
 
 export default function PlayerListItem(props) {
@@ -14,13 +15,12 @@ export default function PlayerListItem(props) {
     
   return (
     <div id='player-list-item-container'>
-      {/* <div>Edit</div> */}
-      <div onClick={() => deletePlayer(props.id)}>Delete</div>
-      <p>
+      <div onClick={() => console.log(props.id)}>
         <span>{props.firstname} </span>
         <span>{props.lastname ? props.lastname : ''} </span>
         <span>{props.jersey ? '#' + props.jersey : ''}</span>
-      </p>
+      </div>
+      <div onClick={() => deletePlayer(props.id)}>Delete</div>
     </div>
   );
 }

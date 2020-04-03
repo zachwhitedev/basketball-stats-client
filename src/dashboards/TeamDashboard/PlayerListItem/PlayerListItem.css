@@ -1,0 +1,7 @@
+#player-list-item-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+    border-bottom: 1px dotted rgb(214, 214, 214);
+    padding: 0 0 4px 0;
+}
