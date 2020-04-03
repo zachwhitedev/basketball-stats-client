@@ -112,7 +112,7 @@ export default function AddPlayersModal(props) {
         players: addPlayers
       };
       console.log('POSTBODY', postBody);
-      dispatch(addNewPlayers(postBody));
+      dispatch(addNewPlayers(userid, postBody));
       dispatch(getUserData(userid));
       dispatch(getCurrentTeam(userid, teamid));
       props.changeModal();

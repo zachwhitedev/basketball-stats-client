@@ -66,8 +66,8 @@ export default function TeamDashboard(props) {
           </div>
           {props.players &&
             props.players.map(player => {
-              return (
-                <p>
+              return ( // make this a component called PlayerListItem
+                <p> 
                   {player.firstname +
                     ' ' +
                     player.lastname +

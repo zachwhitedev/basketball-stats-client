@@ -27,7 +27,7 @@ export default function AddTeamModal(props) {
         teamname: state.teamname,
         userid: userid
       }
-      dispatch(addNewTeam(newTeam));
+      dispatch(addNewTeam(userid, newTeam));
       setState({
         teamname: '',
         validationError: 'Please enter team name.'

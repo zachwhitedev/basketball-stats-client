@@ -7,14 +7,14 @@ const defaultState = {
     const { type, payload } = action;
   
     switch (type) {
-      case 'ADD_NEW_TEAM_FULFILLED': {
+      case 'ADD_NEW_TEAM': {
         return {
           ...state,
           teamAdded: payload.data.body
         };
       }
 
-      case 'ADD_NEW_PLAYERS_FULFILLED': {
+      case 'ADD_NEW_PLAYERS': {
         return {
           ...state,
           playersAdded: payload.data.body
