@@ -14,7 +14,7 @@ export default function SupportPage(props) {
     <div id='supportpage-container'>
       <Navbar />
       <div id='supportpage-content'>
-        <p>support page</p>
+        <p>Support page coming soon. For questions you can contact: zechnwhite@gmail.com</p>
       </div>
     </div>
   );

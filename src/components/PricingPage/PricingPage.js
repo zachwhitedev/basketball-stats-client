@@ -14,7 +14,7 @@ export default function PricingPage(props) {
     <div id='pricingpage-container'>
       <Navbar />
       <div id='pricingpage-content'>
-        <p>pricing page</p>
+        <p>Everything is free at the moment.</p>
       </div>
     </div>
   );
