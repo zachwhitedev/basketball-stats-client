@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './TeamDashboard.css';
 import Navbar from '../../components/Navbar/index';
 import AddPlayersModal from '../../modals/AddPlayersModal/index';
-import PlayerListItem from './PlayerListItem/PlayerListItem';
+import PlayerListItem from './PlayerListItem/index';
 import { Link } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
@@ -73,6 +73,7 @@ export default function TeamDashboard(props) {
                 firstname={player.firstname} 
                 lastname={player.lastname} 
                 jersey={player.jersey} 
+                teamid={props.selectedTeam.id}
                 />
               );
             })}

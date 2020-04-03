@@ -43,17 +43,21 @@ export function deleteTeam(userid, teamid) {
     )
   };
 }
-export function deletePlayer(userid, teamid, playerid) {
-  const deletePlayerRequest = {
-    userid: userid,
-    teamid: teamid,
-    playerid: playerid
-  };
-  return {
-    type: 'DELETE_PLAYER',
-    payload: axios.post(
+
+export function deletePlayer(userid, teamid, playerid){
+  return (dispatch) => {
+    const deletePlayerRequest = {
+      userid: userid,
+      teamid: teamid,
+      playerid: playerid
+    };
+    axios.post(
       'https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/deleteplayer',
       deletePlayerRequest
-    )
-  };
+    ).then(() => {
+      dispatch(getUserData(userid))
+      dispatch(getCurrentTeam(userid, teamid))
+    })
+    .catch(err => console.log(err));
+  }
 }

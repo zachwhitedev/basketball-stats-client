@@ -6,10 +6,11 @@ import { deletePlayer } from '../../UserDashboard/userDashboardActions';
 export default function PlayerListItem(props) {
     const { dispatch } = props;
 
-    const deletePlayer = (playerid) => {
+    const deleteItem = () => {
         const decoded = jwt_decode(localStorage.getItem('token'));
         const userid = decoded.userid; 
         const teamid = props.teamid;
+        const playerid = props.id;
         dispatch(deletePlayer(userid, teamid, playerid));
     }
     
@@ -20,7 +21,7 @@ export default function PlayerListItem(props) {
         <span>{props.lastname ? props.lastname : ''} </span>
         <span>{props.jersey ? '#' + props.jersey : ''}</span>
       </div>
-      <div onClick={() => deletePlayer(props.id)}>Delete</div>
+      <div onClick={() => deleteItem()}>Delete</div>
     </div>
   );
 }
