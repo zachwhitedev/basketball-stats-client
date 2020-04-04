@@ -30,7 +30,6 @@ export default function UserDashboard(props) {
     if (localStorage.getItem('token')) {
       const decoded = jwt_decode(localStorage.getItem('token'));
       dispatch(getUserData(decoded.userid));
-      setInterval(() => {dispatch(getUserData(decoded.userid))}, 16000)
     } else {
       setState({
         ...state,
