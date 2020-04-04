@@ -6,6 +6,18 @@
     padding: 0 0 4px 0;
 }
 
+#player-option-btns{
+    width: 18%;
+    min-width: 85px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#player-edit-btn{
+    cursor: pointer;
+    color: rgb(56, 71, 112);
+}
+
 #player-delete-btn{
     cursor: pointer;
     color: rgb(255, 101, 101);
@@ -13,4 +25,7 @@
 
 #player-delete-btn:hover{
     color: rgb(255, 154, 154);
+}
+#player-edit-btn:hover{
+    opacity: .8;
 }
