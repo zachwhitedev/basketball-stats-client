@@ -5,3 +5,12 @@
     border-bottom: 1px dotted rgb(214, 214, 214);
     padding: 0 0 4px 0;
 }
+
+#player-delete-btn{
+    cursor: pointer;
+    color: rgb(255, 101, 101);
+}
+
+#player-delete-btn:hover{
+    color: rgb(255, 154, 154);
+}

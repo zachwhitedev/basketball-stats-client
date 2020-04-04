@@ -21,7 +21,7 @@ export default function UserDashboard(props) {
     dispatch(getUserData(decoded.userid)); // yes!! one more tymmmeeee
     setTimeout(() => {
       dispatch(getUserData(decoded.userid));
-    }, 600);
+    }, 500);
     setAddTeamModal(!showAddTeamModal);
   };
 
@@ -30,6 +30,7 @@ export default function UserDashboard(props) {
     if (localStorage.getItem('token')) {
       const decoded = jwt_decode(localStorage.getItem('token'));
       dispatch(getUserData(decoded.userid));
+      setInterval(() => {dispatch(getUserData(decoded.userid))}, 15000)
     } else {
       setState({
         ...state,

@@ -3,6 +3,7 @@ import './TeamDashboard.css';
 import Navbar from '../../components/Navbar/index';
 import AddPlayersModal from '../../modals/AddPlayersModal/index';
 import PlayerListItem from './PlayerListItem/index';
+import GamesCard from './GamesCard/GamesCard';
 import { Link } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
@@ -25,7 +26,6 @@ export default function TeamDashboard(props) {
     const teamId = pathsArray[3];
     const decoded = jwt_decode(state.token);
     const userid = decoded.userid;
-    dispatch(getUserData(userid));
     dispatch(getCurrentTeam(userid, teamId));
 
     setState({
@@ -39,16 +39,13 @@ export default function TeamDashboard(props) {
     const decoded = jwt_decode(state.token);
     const userid = decoded.userid;
     dispatch(getUserData(userid));
-    setTimeout(() => {
-      dispatch(getUserData(userid));
-    }, 600);
 
     const pathsArray = window.location.pathname.split('/');
     const teamId = pathsArray[3];
     dispatch(getCurrentTeam(userid, teamId));
-    setTimeout(() => {
+    setInterval(() => {
       dispatch(getCurrentTeam(userid, teamId));
-    }, 600);
+    }, 15000);
   }, [props.selectedTeam.id, state.addingPlayers]);
 
   if (props.selectedTeam.fetched) {
@@ -78,6 +75,7 @@ export default function TeamDashboard(props) {
               );
             })}
         </div>
+        <GamesCard />
       </div>
     );
   } else

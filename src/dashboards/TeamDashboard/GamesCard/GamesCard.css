@@ -1,0 +1,18 @@
+#team-dashboard-games-container {
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 0 4px gray;
+    margin: 20px auto 0 auto;
+    padding: 10px;
+    min-width: 305px;
+    width: 30%;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#new-game-btn {
+    cursor: pointer;
+    border: 1px solid green;
+    background-color: rgb(168, 255, 168);
+    width: 30%;
+    text-align: center;
+}

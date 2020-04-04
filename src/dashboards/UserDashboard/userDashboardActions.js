@@ -31,17 +31,19 @@ export function getCurrentTeam(userid, teamid) {
 }
 
 export function deleteTeam(userid, teamid) {
-  const teamRequest = {
-    userid: userid,
-    teamid: teamid
-  };
-  return {
-    type: 'DELETE_TEAM',
-    payload: axios.post(
+  return (dispatch) => {
+    const teamRequest = {
+      userid: userid,
+      teamid: teamid
+    }
+    axios.post(
       'https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/deleteteam',
       teamRequest
-    )
-  };
+    ).then(() => {
+      dispatch(getUserData(userid));
+      dispatch(getCurrentTeam(userid, teamid))
+    })
+  }
 }
 
 export function deletePlayer(userid, teamid, playerid){

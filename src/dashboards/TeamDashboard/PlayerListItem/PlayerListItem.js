@@ -21,7 +21,7 @@ export default function PlayerListItem(props) {
         <span>{props.lastname ? props.lastname : ''} </span>
         <span>{props.jersey ? '#' + props.jersey : ''}</span>
       </div>
-      <div onClick={() => deleteItem()}>Delete</div>
+      <div id='player-delete-btn' onClick={() => deleteItem()}>Delete</div>
     </div>
   );
 }
