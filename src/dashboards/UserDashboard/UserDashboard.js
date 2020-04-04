@@ -17,6 +17,10 @@ export default function UserDashboard(props) {
   const [showAddTeamModal, setAddTeamModal] = useState(false);
 
   const changeModal = () => {
+    if(props.teams.length >= 2){
+      alert('Free accounts are limited to 2 teams.')
+      return;
+    }
     const decoded = jwt_decode(localStorage.getItem('token'));
     dispatch(getUserData(decoded.userid)); // yes!! one more tymmmeeee
     setTimeout(() => {

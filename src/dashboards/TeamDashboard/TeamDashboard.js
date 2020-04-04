@@ -24,6 +24,10 @@ export default function TeamDashboard(props) {
 
 
   const changeModal = () => {
+    if(props.players.length >= 6){
+      alert('Free account limit exceeded. Upgrade to add up to 30 players per team.')
+      return;
+    }
     const pathsArray = window.location.pathname.split('/');
     const teamId = pathsArray[3];
     const decoded = jwt_decode(state.token);
