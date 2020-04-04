@@ -20,12 +20,13 @@ export default function TeamDashboard(props) {
     addingPlayers: false,
     token: localStorage.getItem('token')
   });
-  const[teamName, setTeamName] = useState('Team'); // keeps teamname from disappearing when re-loading players
-
+  const [teamName, setTeamName] = useState('Team'); // keeps teamname from disappearing when re-loading players
 
   const changeModal = () => {
-    if(props.players.length >= 6){
-      alert('Free account limit exceeded. Upgrade to add up to 30 players per team.')
+    if (props.players.length >= 6) {
+      alert(
+        'Free account limit exceeded. Upgrade to add up to 30 players per team.'
+      );
       return;
     }
     const pathsArray = window.location.pathname.split('/');
@@ -33,7 +34,9 @@ export default function TeamDashboard(props) {
     const decoded = jwt_decode(state.token);
     const userid = decoded.userid;
     dispatch(getCurrentTeam(userid, teamId));
-    setTimeout(() => {dispatch(getCurrentTeam(userid, teamId))}, 1200);
+    setTimeout(() => {
+      dispatch(getCurrentTeam(userid, teamId));
+    }, 1200);
 
     setState({
       ...state,
@@ -43,7 +46,7 @@ export default function TeamDashboard(props) {
 
   useEffect(() => {
     console.log('useEffect, TeamDashboard,js, line 23');
-    setTeamName(props.selectedTeam.name); 
+    setTeamName(props.selectedTeam.name);
     const decoded = jwt_decode(state.token);
     const userid = decoded.userid;
     dispatch(getUserData(userid));
