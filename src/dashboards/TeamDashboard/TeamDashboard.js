@@ -20,6 +20,8 @@ export default function TeamDashboard(props) {
     addingPlayers: false,
     token: localStorage.getItem('token')
   });
+  const[teamName, setTeamName] = useState('Team'); // keeps teamname from disappearing when re-loading players
+
 
   const changeModal = () => {
     const pathsArray = window.location.pathname.split('/');
@@ -37,6 +39,7 @@ export default function TeamDashboard(props) {
 
   useEffect(() => {
     console.log('useEffect, TeamDashboard,js, line 23');
+    setTeamName(props.selectedTeam.name); 
     const decoded = jwt_decode(state.token);
     const userid = decoded.userid;
     dispatch(getUserData(userid));
@@ -57,7 +60,7 @@ export default function TeamDashboard(props) {
           </div>
           <div id='team-dashboard-items'>
             <p>
-              <h2>{props.selectedTeam.name} Roster</h2>
+              <h2>{teamName} Roster</h2>
             </p>
           </div>
           {props.players &&
