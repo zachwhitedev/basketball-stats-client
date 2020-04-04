@@ -45,7 +45,7 @@ export default function TeamDashboard(props) {
     dispatch(getCurrentTeam(userid, teamId));
     setInterval(() => {
       dispatch(getCurrentTeam(userid, teamId));
-    }, 8000);
+    }, 16000);
   }, [props.selectedTeam.id, state.addingPlayers]);
 
   if (props.selectedTeam.fetched) {
