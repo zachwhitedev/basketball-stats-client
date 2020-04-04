@@ -21,7 +21,7 @@ export default function UserDashboard(props) {
     dispatch(getUserData(decoded.userid)); // yes!! one more tymmmeeee
     setTimeout(() => {
       dispatch(getUserData(decoded.userid));
-    }, 500);
+    }, 1200);
     setAddTeamModal(!showAddTeamModal);
   };
 
