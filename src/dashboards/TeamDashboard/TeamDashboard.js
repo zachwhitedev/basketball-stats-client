@@ -45,7 +45,7 @@ export default function TeamDashboard(props) {
     dispatch(getCurrentTeam(userid, teamId));
     setInterval(() => {
       dispatch(getCurrentTeam(userid, teamId));
-    }, 15000);
+    }, 8000);
   }, [props.selectedTeam.id, state.addingPlayers]);
 
   if (props.selectedTeam.fetched) {
@@ -65,12 +65,12 @@ export default function TeamDashboard(props) {
           {props.players &&
             props.players.map(player => {
               return (
-                <PlayerListItem 
-                id={player.id}
-                firstname={player.firstname} 
-                lastname={player.lastname} 
-                jersey={player.jersey} 
-                teamid={props.selectedTeam.id}
+                <PlayerListItem
+                  id={player.id}
+                  firstname={player.firstname}
+                  lastname={player.lastname}
+                  jersey={player.jersey}
+                  teamid={props.selectedTeam.id}
                 />
               );
             })}

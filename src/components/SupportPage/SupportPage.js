@@ -17,7 +17,7 @@ export default function SupportPage(props) {
         <p>This site is under development.</p>
         <p>No data is being permanently saved.</p>
         <p>If you have any questions you can contact me:</p>
-        <p>zechnwhite@gmail.com</p>
+        <p>zechnwhite at gmail.com</p>
       </div>
     </div>
   );
