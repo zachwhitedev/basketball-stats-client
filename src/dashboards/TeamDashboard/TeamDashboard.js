@@ -71,7 +71,7 @@ export default function TeamDashboard(props) {
             </p>
           </div>
           {props.players &&
-            props.players.map(player => {
+            props.players.sort((a, b) => a.lastname.localeCompare(b.firstname)).map(player => {
               return (
                 <PlayerListItem
                   id={player.id}
