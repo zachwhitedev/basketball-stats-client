@@ -1,0 +1,31 @@
+#game-list-item-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+    border-bottom: 1px dotted rgb(214, 214, 214);
+    padding: 0 0 4px 0;
+}
+
+#game-option-btns{
+    width: 18%;
+    min-width: 85px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#game-edit-btn{
+    cursor: pointer;
+    color: rgb(56, 71, 112);
+}
+
+#game-delete-btn{
+    cursor: pointer;
+    color: rgb(255, 101, 101);
+}
+
+#game-delete-btn:hover{
+    color: rgb(255, 154, 154);
+}
+#game-edit-btn:hover{
+    opacity: .8;
+}

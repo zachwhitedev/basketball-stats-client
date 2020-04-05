@@ -38,13 +38,21 @@ export default function TeamDashboard(props) {
     setTimeout(() => {
       dispatch(getCurrentTeam(userid, teamId));
     }, 1200);
-
+    
     setState({
       ...state,
       addingPlayers: !state.addingPlayers
     });
   };
   const changeModalGames = () => {
+    const pathsArray = window.location.pathname.split('/');
+    const teamId = pathsArray[3];
+    const decoded = jwt_decode(state.token);
+    const userid = decoded.userid;
+    dispatch(getCurrentTeam(userid, teamId));
+    setTimeout(() => {
+      dispatch(getCurrentTeam(userid, teamId));
+    }, 1200);
     setState({
       ...state,
       addingGame: !state.addingGame

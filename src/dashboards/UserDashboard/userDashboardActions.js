@@ -63,3 +63,21 @@ export function deletePlayer(userid, teamid, playerid){
     .catch(err => console.log(err));
   }
 }
+
+export function deleteGame(userid, teamid, gameid){
+  return (dispatch) => {
+    const deleteGameRequest = {
+      userid: userid,
+      teamid: teamid,
+      gameid: gameid
+    };
+    axios.post(
+      'https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/deletegame',
+      deleteGameRequest
+    ).then(() => {
+      dispatch(getUserData(userid))
+      dispatch(getCurrentTeam(userid, teamid))
+    })
+    .catch(err => console.log(err));
+  }
+}
