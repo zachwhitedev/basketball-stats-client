@@ -14,6 +14,7 @@ import RegisterPage from './components/RegisterPage/index';
 import ConfirmationPage from './components/ConfirmationPage/index';
 import UserDashboard from './dashboards/UserDashboard/index';
 import TeamDashboard from './dashboards/TeamDashboard/index';
+import GameActive from './dashboards/GameActive/index';
 import PricingPage from './components/PricingPage/index';
 import SupportPage from './components/SupportPage/index';
 
@@ -94,6 +95,22 @@ function App() {
             }
           }}
         ></Route>
+        <Route
+          path='/game'
+          render={() => {
+            if (localStorage.getItem('token')) {
+              return <GameActive />;
+            } else {
+              return (
+                <Redirect
+                  to={{
+                    pathname: '/login'
+                  }}
+                />
+              );
+            }
+          }}
+        ></Route>
         <Route path='/register' exact
         render={() => {
           if (localStorage.getItem('token')) {
@@ -105,6 +122,22 @@ function App() {
         >
           
         </Route>
+        <Route
+          path='/team'
+          render={() => {
+            if (localStorage.getItem('token')) {
+              return <TeamDashboard />;
+            } else {
+              return (
+                <Redirect
+                  to={{
+                    pathname: '/login'
+                  }}
+                />
+              );
+            }
+          }}
+        ></Route>
         <Route path='/support' exact>
           <SupportPage />
         </Route>

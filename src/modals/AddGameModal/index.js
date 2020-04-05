@@ -3,7 +3,7 @@ import AddGameModal from './AddGameModal';
 
 function mapStoreToProps(store) {
   return {
-    addTeam: store.modals.teamAdded
+    selectedTeam: store.userDashboard.selectedTeam
   };
 }
 export default connect(mapStoreToProps)(AddGameModal);

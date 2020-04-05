@@ -52,7 +52,7 @@
     cursor: pointer;
 }
 
-#addgame-modal-input-teamname{
+#addgame-modal-input-gamename{
     margin: 4px 0 0 0;
     font-family: 'Roboto';
     width: 250px;
@@ -62,7 +62,7 @@
     padding: 1px 0 0 8px;
     font-size: 16px;
 }
-#addgame-modal-input-teamname:focus{
+#addgame-modal-input-gamename:focus{
     outline: 1px solid rgb(60, 229, 255);
     border: 1px solid rgb(244, 244, 244);
 }

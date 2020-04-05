@@ -3,8 +3,8 @@ import './TeamDashboard.css';
 import Navbar from '../../components/Navbar/index';
 import AddPlayersModal from '../../modals/AddPlayersModal/index';
 import PlayerListItem from './PlayerListItem/index';
-import GamesCard from './GamesCard/GamesCard';
-import { Link } from 'react-router-dom';
+import GamesCard from './GamesCard/index';
+import AddGameModal from '../../modals/AddGameModal/index';
 import jwt_decode from 'jwt-decode';
 
 import {
@@ -18,11 +18,12 @@ export default function TeamDashboard(props) {
   const [state, setState] = useState({
     loading: true,
     addingPlayers: false,
+    addingGame: false,
     token: localStorage.getItem('token')
   });
   const [teamName, setTeamName] = useState('Team'); // keeps teamname from disappearing when re-loading players
 
-  const changeModal = () => {
+  const changeModalPlayers = () => {
     if (props.players.length >= 6) {
       alert(
         'Free account limit exceeded. Upgrade to add up to 30 players per team.'
@@ -43,6 +44,12 @@ export default function TeamDashboard(props) {
       addingPlayers: !state.addingPlayers
     });
   };
+  const changeModalGames = () => {
+    setState({
+      ...state,
+      addingGame: !state.addingGame
+    });
+  };
 
   useEffect(() => {
     console.log('useEffect, TeamDashboard,js, line 23');
@@ -60,9 +67,10 @@ export default function TeamDashboard(props) {
     return (
       <div id='team-dashboard-container'>
         <Navbar />
-        {state.addingPlayers && <AddPlayersModal changeModal={changeModal} />}
+        {state.addingPlayers && <AddPlayersModal changeModal={changeModalPlayers} />}
+        {state.addingGame && <AddGameModal changeModal={changeModalGames} />}
         <div id='team-dashboard-content'>
-          <div id='team-dashboard-addplayers-btn' onClick={() => changeModal()}>
+          <div id='team-dashboard-addplayers-btn' onClick={() => changeModalPlayers()}>
             Add Players
           </div>
           <div id='team-dashboard-items'>
@@ -83,7 +91,7 @@ export default function TeamDashboard(props) {
               );
             })}
         </div>
-        <GamesCard />
+        <GamesCard changeModal={changeModalGames}/>
       </div>
     );
   } else

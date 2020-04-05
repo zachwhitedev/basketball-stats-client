@@ -7,6 +7,7 @@ const defaultState = {
   selectedTeam: {
     id: '',
     players: [],
+    games: [],
     fetched: false
   }
 };
@@ -36,6 +37,7 @@ export default function userDashboardReducer(state = defaultState, action) {
           id: payload.data.body.teamid,
           name: payload.data.body.name,
           players: payload.data.body.players,
+          games: payload.data.body.games,
           fetched: true
         }
       };

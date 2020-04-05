@@ -15,6 +15,12 @@ export function addNewTeamHelper(team) {
     payload: team
   };
 }
+export function addNewGameHelper(game) {
+  return {
+    type: 'ADD_NEW_GAME',
+    payload: game
+  };
+}
 
 export function addNewTeam(userid, newTeam) {
   return dispatch => {
@@ -26,6 +32,24 @@ export function addNewTeam(userid, newTeam) {
       .then(team => {
         dispatch(addNewTeamHelper(team));
         return team;
+      })
+      .then(() => {
+        dispatch(getUserData(userid));
+      })
+      .catch(err => console.log(err));
+  };
+}
+
+export function addNewGame(userid, newGame) {
+  return dispatch => {
+    axios
+      .post(
+        'https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/addgame',
+        newGame
+      )
+      .then(game => {
+        dispatch(addNewGameHelper(game));
+        return game;
       })
       .then(() => {
         dispatch(getUserData(userid));

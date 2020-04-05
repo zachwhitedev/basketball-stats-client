@@ -1,5 +1,6 @@
 const defaultState = {
     teamAdded: {},
+    gameAdded: {},
     playersAdded: {}
   };
   
@@ -11,6 +12,12 @@ const defaultState = {
         return {
           ...state,
           teamAdded: payload.data.body
+        };
+      }
+      case 'ADD_NEW_GAME': {
+        return {
+          ...state,
+          gameAdded: payload.data.body
         };
       }
 

@@ -1,36 +1,38 @@
 import React, { useState } from 'react';
-import './AddTeamModal.css';
+import './AddGameModal.css';
 import jwt_decode from 'jwt-decode';
 
-import { addNewTeam } from '../modalActions';
+import { addNewGame } from '../modalActions';
 import { getUserData } from '../../dashboards/UserDashboard/userDashboardActions';
 
 export default function AddGameModal(props) {
   const { dispatch } = props;
 
   const [state, setState] = useState({
-    teamname: '',
+    gamename: '',
     validationError: ''
   });
 
   const handleSubmit = e => {
     e.preventDefault();
-    if(!state.teamname){
+    if(!state.gamename){
       setState({
         ...state,
-        validationError: 'Please enter team name.'
+        validationError: 'Please enter game name.'
       })
     } else {
       const decoded = jwt_decode(localStorage.getItem('token'));
       const userid = decoded.userid;
-      const newTeam = {
-        teamname: state.teamname,
+      const teamid = props.selectedTeam.id;
+      const newGame = {
+        gamename: state.gamename,
+        teamid: teamid,
         userid: userid
       }
-      dispatch(addNewTeam(userid, newTeam));
+      dispatch(addNewGame(userid, newGame));
       setState({
         teamname: '',
-        validationError: 'Please enter team name.'
+        validationError: 'Please enter game name.'
       })
       dispatch(getUserData(userid));
       props.changeModal();
@@ -50,20 +52,20 @@ export default function AddGameModal(props) {
       <div id='addgame-modal-shadow'></div>
       <div id='addgame-modal-container'>
         <div id='addgame-modal-content'>
-          <h2>Create a new team</h2>
-          <p>Team name</p>
+          <h2>Create a new game</h2>
+          <p>Game name</p>
           <input
-              name='teamname'
-              id='addgame-modal-input-teamname'
+              name='gamename'
+              id='addgame-modal-input-gamename'
               type='text'
-              placeholder='Riverdale Raptors - Winter 2021'
+              placeholder='vs. Vernon Vipers 3/7/2021'
               onChange={e => onChange(e)}
             ></input>
         </div>
         {state.validationError}
         <div id='addgame-modal-buttons-container'>
           <div onClick={() => props.changeModal()}>Cancel</div>
-          <div onClick={e => handleSubmit(e)}>Add Team</div>
+          <div onClick={e => handleSubmit(e)}>Add Game</div>
         </div>
       </div>
     </div>
