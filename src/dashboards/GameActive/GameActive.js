@@ -4,16 +4,15 @@ import Navbar from '../../components/Navbar/index';
 import { Link } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
-
-export default function TeamDashboard(props) {
+export default function GameActive(props) {
   const { dispatch } = props;
 
   const [state, setState] = useState({
-    stuff: 'stuff'
+    stuff: 'stuff',
   });
 
   useEffect(() => {
-    console.log('useEffect, GameActive.js')
+    console.log('useEffect, GameActive.js');
   }, []);
 
   if (true) {
@@ -21,9 +20,7 @@ export default function TeamDashboard(props) {
       <div id='gameactive-container'>
         <Navbar />
         <div id='gameactive-content'>
-          <div id='gameactive-items'>
-              litty
-          </div>
+          <div id='gameactive-items'>litty</div>
         </div>
       </div>
     );
@@ -37,4 +34,3 @@ export default function TeamDashboard(props) {
       </div>
     );
 }
-

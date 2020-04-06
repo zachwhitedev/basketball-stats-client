@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
 } from 'react-router-dom';
 import './css/App.css';
 
@@ -33,18 +33,17 @@ function App() {
     <Router>
       <BackgroundColor />
       <Switch>
-        <Route 
-        path='/' 
-        exact
-        render={() => {
+        <Route
+          path='/'
+          exact
+          render={() => {
             if (localStorage.getItem('token')) {
-              return <Redirect to='/dashboard'/>;
+              return <Redirect to='/dashboard' />;
             } else {
-              return <LandingPage />
+              return <LandingPage />;
             }
           }}
-        >
-        </Route>
+        ></Route>
         <Route
           path='/login'
           exact
@@ -55,7 +54,7 @@ function App() {
               return (
                 <Redirect
                   to={{
-                    pathname: '/dashboard'
+                    pathname: '/dashboard',
                   }}
                 />
               );
@@ -72,7 +71,7 @@ function App() {
               return (
                 <Redirect
                   to={{
-                    pathname: '/login'
+                    pathname: '/login',
                   }}
                 />
               );
@@ -88,7 +87,34 @@ function App() {
               return (
                 <Redirect
                   to={{
-                    pathname: '/login'
+                    pathname: '/login',
+                  }}
+                />
+              );
+            }
+          }}
+        ></Route>
+        <Route
+          path='/register'
+          exact
+          render={() => {
+            if (localStorage.getItem('token')) {
+              return <Redirect to='/dashboard' />;
+            } else {
+              return <RegisterPage />;
+            }
+          }}
+        ></Route>
+        <Route
+          path='/team'
+          render={() => {
+            if (localStorage.getItem('token')) {
+              return <TeamDashboard />;
+            } else {
+              return (
+                <Redirect
+                  to={{
+                    pathname: '/login',
                   }}
                 />
               );
@@ -104,34 +130,7 @@ function App() {
               return (
                 <Redirect
                   to={{
-                    pathname: '/login'
-                  }}
-                />
-              );
-            }
-          }}
-        ></Route>
-        <Route path='/register' exact
-        render={() => {
-          if (localStorage.getItem('token')) {
-            return < Redirect to='/dashboard' />
-          } else {
-            return <RegisterPage />;
-          }
-        }}
-        >
-          
-        </Route>
-        <Route
-          path='/team'
-          render={() => {
-            if (localStorage.getItem('token')) {
-              return <TeamDashboard />;
-            } else {
-              return (
-                <Redirect
-                  to={{
-                    pathname: '/login'
+                    pathname: '/login',
                   }}
                 />
               );
