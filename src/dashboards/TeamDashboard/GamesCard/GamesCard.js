@@ -13,7 +13,7 @@ export default function GamesCard(props) {
         return (
           <GameListItem
             name={game.game_name}
-            id={game.game_id}
+            gameid={game.game_id}
             teamid={props.selectedTeam.id}
           />
         );

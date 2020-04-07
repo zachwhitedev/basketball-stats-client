@@ -2,14 +2,14 @@ const defaultState = {
   error: '',
   data: {
     teams: [],
-    players: []
+    players: [],
   },
   selectedTeam: {
     id: '',
     players: [],
     games: [],
-    fetched: false
-  }
+    fetched: false,
+  },
 };
 
 export default function userDashboardReducer(state = defaultState, action) {
@@ -19,14 +19,21 @@ export default function userDashboardReducer(state = defaultState, action) {
     case 'GET_USER_DATA_FULFILLED': {
       return {
         ...state,
-        data: payload.data.data
+        data: payload.data.data,
       };
     }
 
     case 'SELECT_TEAM': {
       return {
         ...state,
-        selectedTeam: payload
+        selectedTeam: payload,
+      };
+    }
+
+    case 'GET_CURRENT_GAME': {
+      return {
+        ...state,
+        currentGame: payload.data.body.game[0],
       };
     }
 
@@ -38,8 +45,8 @@ export default function userDashboardReducer(state = defaultState, action) {
           name: payload.data.body.name,
           players: payload.data.body.players,
           games: payload.data.body.games,
-          fetched: true
-        }
+          fetched: true,
+        },
       };
     }
 

@@ -16,6 +16,13 @@ export function selectTeam(team) {
   };
 }
 
+export function getCurrentGameHelper(game) {
+  return {
+    type: 'GET_CURRENT_GAME',
+    payload: game
+  };
+}
+
 export function getCurrentTeam(userid, teamid) {
   const teamRequest = {
     userid: userid,
@@ -28,6 +35,23 @@ export function getCurrentTeam(userid, teamid) {
       teamRequest
     )
   };
+}
+
+
+export function getCurrentGame(userid, teamid, gameid) {
+  return (dispatch) => {
+    const gameRequest = {
+      userid: userid,
+      teamid: teamid,
+      gameid: gameid
+    };
+    axios.post(
+      'https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/getgame',
+    gameRequest
+    ).then(game => {
+      dispatch(getCurrentGameHelper(game));
+    }).catch(err => console.log(err));
+  }
 }
 
 export function deleteTeam(userid, teamid) {

@@ -3,7 +3,7 @@ import GameActive from './GameActive';
 
 function mapStoreToProps(store) {
   return {
-    selectedTeam: store.userDashboard.selectedTeam,
+    game: store.userDashboard.currentGame,
     players: store.userDashboard.selectedTeam.players
   };
 }

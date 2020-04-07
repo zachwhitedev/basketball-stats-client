@@ -3,6 +3,7 @@ import './GameActive.css';
 import Navbar from '../../components/Navbar/index';
 import { Link } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
+import { getCurrentGame, getCurrentTeam } from '../UserDashboard/userDashboardActions';
 
 export default function GameActive(props) {
   const { dispatch } = props;
@@ -12,7 +13,14 @@ export default function GameActive(props) {
   });
 
   useEffect(() => {
-    console.log('useEffect, GameActive.js');
+    const decoded = jwt_decode(localStorage.getItem('token'));
+    const userid = decoded.userid;
+
+    const pathsArray = window.location.pathname.split('/');
+    const teamid = pathsArray[2];
+    const gameid = pathsArray[3];
+    dispatch(getCurrentGame(userid, teamid, gameid));
+    dispatch(getCurrentTeam(userid, teamid));
   }, []);
 
   if (true) {
@@ -20,7 +28,8 @@ export default function GameActive(props) {
       <div id='gameactive-container'>
         <Navbar />
         <div id='gameactive-content'>
-          <div id='gameactive-items'>litty</div>
+    <div id='gameactive-items'>{props.game ? props.game.game_name : ''}</div>
+          <p>{props.game ? props.game.teamscore : ''}</p>
         </div>
       </div>
     );
