@@ -3,13 +3,17 @@ import './GameActive.css';
 import Navbar from '../../components/Navbar/index';
 import { Link } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
-import { getCurrentGame, getCurrentTeam } from '../UserDashboard/userDashboardActions';
+import {
+  getCurrentGame,
+  getCurrentTeam,
+} from '../UserDashboard/userDashboardActions';
 
 export default function GameActive(props) {
   const { dispatch } = props;
 
   const [state, setState] = useState({
-    stuff: 'stuff',
+    selectedPlayerId: '',
+    selectedEventId: '',
   });
 
   useEffect(() => {
@@ -23,13 +27,20 @@ export default function GameActive(props) {
     dispatch(getCurrentTeam(userid, teamid));
   }, []);
 
-  if (true) {
+  if (props.game && props.players) {
     return (
       <div id='gameactive-container'>
         <Navbar />
         <div id='gameactive-content'>
-    <div id='gameactive-items'>{props.game ? props.game.game_name : ''}</div>
-          <p>{props.game ? props.game.teamscore : ''}</p>
+          <div id='gameactive-items'>
+            <h1>{props.game.game_name}</h1>
+            <p>{props.game.teamscore + ' | ' + props.game.oppscore} </p>
+            <div>
+              {props.players.map((player) => {
+                return <p>{player.firstname}</p>;
+              })}
+            </div>
+          </div>
         </div>
       </div>
     );

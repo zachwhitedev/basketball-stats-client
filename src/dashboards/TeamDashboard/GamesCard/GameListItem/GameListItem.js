@@ -31,7 +31,7 @@ export default function GameListItem(props) {
     const decoded = jwt_decode(localStorage.getItem('token'));
     const userid = decoded.userid;
     const teamid = props.teamid;
-    const gameid = props.id;
+    const gameid = props.gameid;
     dispatch(deleteGame(userid, teamid, gameid));
   };
 
