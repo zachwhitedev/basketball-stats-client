@@ -7,7 +7,7 @@ import Navbar from '../Navbar/index';
 
 export default function SupportPage(props) {
   const [state, setState] = useState({
-    successMsg: ''
+    successMsg: '',
   });
 
   return (
@@ -19,7 +19,7 @@ export default function SupportPage(props) {
         <p>If you have any questions you can contact me:</p>
         <p>zechnwhite at gmail.com</p>
         <br></br>
-        <h2>Test the site!</h2>
+        <h2>Test the site</h2>
         CREDENTIALS <br></br>
         <b>email:</b> test@test.com <br></br>
         <b>password:</b> test123
