@@ -1,0 +1,20 @@
+#player2-list-item-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 0;
+    border-bottom: 1px solid rgb(214, 214, 214);
+    padding: 8px 3px 8px 3px;
+}
+
+#player2-list-item-selected-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 0;
+    border: 1px solid green;
+    padding: 8px 3px 8px 3px;
+}
+
+#player2-list-item-container:hover{
+    background-color: rgb(215, 231, 255);
+    cursor: pointer;
+}

@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './GameActive.css';
 import Navbar from '../../components/Navbar/index';
-import { Link } from 'react-router-dom';
+
+import EventsCard from './Cards/EventsCard/EventsCard';
+import PlayersCard from './Cards/PlayersCard/PlayersCard';
+
 import jwt_decode from 'jwt-decode';
 import {
   getCurrentGame,
@@ -15,6 +18,24 @@ export default function GameActive(props) {
     selectedPlayerId: '',
     selectedEventId: '',
   });
+
+  const selectPlayer = (id) => {
+    setState({
+      ...state,
+      selectedPlayerId: id,
+    });
+  };
+  const selectEvent = (id) => {
+    if (state.selectedPlayerId) {
+      // dispatch addGameEvent here
+      setState({
+        ...state,
+        selectedEventId: id,
+      });
+    } else {
+      alert('Please select a player first.');
+    }
+  };
 
   useEffect(() => {
     const decoded = jwt_decode(localStorage.getItem('token'));
@@ -31,15 +52,19 @@ export default function GameActive(props) {
     return (
       <div id='gameactive-container'>
         <Navbar />
-        <div id='gameactive-content'>
-          <div id='gameactive-items'>
-            <h1>{props.game.game_name}</h1>
-            <p>{props.game.teamscore + ' | ' + props.game.oppscore} </p>
-            <div>
-              {props.players.map((player) => {
-                return <p>{player.firstname}</p>;
-              })}
-            </div>
+        <div id='gameactive-title-card'>
+          <h1>Game: {props.game.game_name}</h1>
+          <p>{props.game.teamscore + ' | ' + props.game.oppscore} </p>
+        </div>
+        <div id='gameactive-players-events-history-container'>
+          <PlayersCard
+            state={state}
+            selectPlayer={selectPlayer}
+            players={props.players}
+          />
+          <EventsCard state={state} selectEvent={selectEvent} />
+          <div id='gameactive-eventlog-card' className='gameactive-card'>
+            <h3>Event Log</h3>
           </div>
         </div>
       </div>
