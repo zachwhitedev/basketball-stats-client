@@ -1,0 +1,8 @@
+#gameactive-title-card{
+    width: 100%;
+    margin: 0 auto 8px auto;
+    border: 0px solid rgb(63, 68, 81);
+    text-align: center;
+    background-color: rgb(243, 245, 255);
+    border: 1px solid gray;
+  }

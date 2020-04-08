@@ -9,16 +9,16 @@ import { getUserData, selectTeam } from '../UserDashboard/userDashboardActions';
 import TeamListItem from './TeamListItem/index';
 
 export default function UserDashboard(props) {
-  const { dispatch } = props;
+  const { dispatch, teams } = props;
   const [state, setState] = useState({
     loggedOut: false,
-    addingTeam: true
+    addingTeam: true,
   });
   const [showAddTeamModal, setAddTeamModal] = useState(false);
 
   const changeModal = () => {
-    if(props.teams.length >= 2){
-      alert('Free accounts are limited to 2 teams.')
+    if (props.teams.length >= 2) {
+      alert('Free accounts are limited to 2 teams.');
       return;
     }
     const decoded = jwt_decode(localStorage.getItem('token'));
@@ -37,29 +37,38 @@ export default function UserDashboard(props) {
     } else {
       setState({
         ...state,
-        loggedOut: true
+        loggedOut: true,
       });
     }
-  }, [state.token, state.loggedOut, props.teams.length]);
+  }, [state.token, state.loggedOut, props.selectedTeam.id]);
 
-  return (
-    <div id='user-dashboard-container'>
-      <Navbar />
-      {showAddTeamModal && <AddTeamModal changeModal={changeModal} />}
-      {state.loggedOut && <Redirect to='/' />}
-      <div id='user-dashboard-content'>
-        <div id='user-dashboard-add-team-btn' onClick={changeModal}>
-          Add Team
+  if (props.teams) {
+    return (
+      <div id='user-dashboard-container'>
+        <Navbar />
+        {showAddTeamModal && <AddTeamModal changeModal={changeModal} />}
+        {state.loggedOut && <Redirect to='/' />}
+        <div id='user-dashboard-content'>
+          <div id='user-dashboard-add-team-btn' onClick={changeModal}>
+            Add Team
+          </div>
+          <h1>Your Teams</h1>
+          {
+            teams.map((team) => {
+              return <TeamListItem teamname={team.name} teamid={team.id} />;
+            })
+          }
         </div>
-        <h1>Your Teams</h1>
-        {props.teams ? (
-          props.teams.map(team => {
-            return <TeamListItem teamname={team.name} teamid={team.id} />;
-          })
-        ) : (
-          <p>Loading...</p>
-        )}
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div id='user-dashboard-container'>
+        <Navbar />
+        <div id='user-dashboard-content'>
+          <p>Loading...</p>
+        </div>
+      </div>
+    );
+  }
 }

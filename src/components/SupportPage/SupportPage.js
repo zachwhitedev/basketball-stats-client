@@ -18,6 +18,11 @@ export default function SupportPage(props) {
         <p>No data is being permanently saved.</p>
         <p>If you have any questions you can contact me:</p>
         <p>zechnwhite at gmail.com</p>
+        <br></br>
+        <h2>Test the site!</h2>
+        CREDENTIALS: <br></br>
+        <b>email:</b> test@test.com <br></br>
+        <b>password:</b> test123
       </div>
     </div>
   );
