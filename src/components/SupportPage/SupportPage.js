@@ -20,7 +20,7 @@ export default function SupportPage(props) {
         <p>zechnwhite at gmail.com</p>
         <br></br>
         <h2>Test the site!</h2>
-        CREDENTIALS: <br></br>
+        CREDENTIALS <br></br>
         <b>email:</b> test@test.com <br></br>
         <b>password:</b> test123
       </div>
