@@ -1,10 +1,25 @@
 #gameactive-events-card{
-    width: 26%;
+    width: 100%;
     background-color: white;
     border-radius: 6px;
     box-shadow: 0 0 4px gray;
     padding: 10px;
     margin: 0 0 8px 0;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+#game-events-card-title{
+    text-align: center;
+    margin: 0 0 8px 0;
+}
+
+#gameactive-event-buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    row-gap: 5px;
+    column-gap: 0px;
 }
 
 #gameactive-submit-event-btn{

@@ -10,11 +10,12 @@
     display: flex;
     justify-content: space-between;
     margin: 0px 0;
-    border: 1px solid green;
+    background-color: rgb(192, 255, 192);
+    border-bottom: 1px solid rgb(214, 214, 214);
     padding: 8px 3px 8px 3px;
 }
 
 #player2-list-item-container:hover{
-    background-color: rgb(215, 231, 255);
+    background-color: rgb(229, 255, 227);
     cursor: pointer;
 }

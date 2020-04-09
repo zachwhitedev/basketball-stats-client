@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './GameActive.css';
+import { Link, Redirect } from 'react-router-dom';
+
 import Navbar from '../../components/Navbar/index';
 
 import PlayersCard from './Cards/PlayersCard/PlayersCard';
@@ -70,30 +72,40 @@ export default function GameActive(props) {
   if (props.game && props.players) {
     return (
       <div id='gameactive-container'>
-        <Navbar />
-        <TitleCard game={props.game} />
-        <div id='gameactive-players-events-history-container'>
-          <PlayersCard
-            state={state}
-            selectPlayer={selectPlayer}
-            players={props.players}
-          />
-          <EventsCard
-            state={state}
-            selectEvent={selectEvent}
-            clearEvent={clearEvent}
-          />
-          <HistoryCard />
+        {/* <Navbar /> */}
+        <div id='gameactive-sidebar'>
+          <TitleCard />
+        </div>
+        <div id='gameactive-not-sidebar'>
+          <div id='gameactive-titlecard'>
+            <h3>Game Title</h3>
+            <h4>82 - 77</h4>
+          </div>
+          <div id='gameactive-players-events-history-container'>
+            <PlayersCard
+              state={state}
+              selectPlayer={selectPlayer}
+              players={props.players}
+            />
+            <div id='gameactive-events-and-history'>
+              <EventsCard
+                state={state}
+                selectEvent={selectEvent}
+                clearEvent={clearEvent}
+              />
+              <HistoryCard />
+            </div>
+          </div>
         </div>
       </div>
     );
   } else
     return (
       <div id='gameactive-container'>
-          <Navbar />
-          <div id='gameactive-loading-card'>
-            <p>Loading...</p>
-          </div>
+        <Navbar />
+        <div id='gameactive-loading-card'>
+          <p>Loading...</p>
+        </div>
       </div>
     );
 }

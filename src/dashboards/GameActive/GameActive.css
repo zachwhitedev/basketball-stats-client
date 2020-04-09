@@ -1,6 +1,34 @@
 #gameactive-container{
-  margin: 100px 0 50px 0;
+  margin: 40px 0 50px 0;
   padding: 0 8px;
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+}
+
+#gameactive-titlecard{
+  text-align: center;
+  height: 60px;
+  width: 70%;
+  max-width: 450px;
+  background-color: rgb(234, 234, 234);
+  border-radius: 6px;
+  box-shadow: 0 0 4px gray;
+  margin: 0 auto 20px auto;
+  padding: 0;
+}
+
+#gameactive-sidebar{
+  margin-top: 5px;
+  min-width: 180px;
+  text-align: center;
+  color: white;
+  border: 2px solid orange;
+}
+
+#gameactive-not-sidebar{
+  width: 100%;
+  border: 3px solid purple;
 }
 
 .gameactive-card{
@@ -12,8 +40,14 @@
 }
 
 #gameactive-players-events-history-container{
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+#gameactive-events-and-history{
+  border: 4px solid rgb(9, 169, 6);
+  width: 40%;
 }
 
 #gameactive-loading-card{

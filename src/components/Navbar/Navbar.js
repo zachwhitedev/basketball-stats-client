@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 import { Link, Redirect } from 'react-router-dom';
 import basketball from '../../assets/img/basketball.png';
@@ -35,17 +35,17 @@ const MainNav = () => {
 };
 
 const UserNav = () => {
-  const[state, setState] = useState({
-    loggedOut: false
-  })
-  
+  const [state, setState] = useState({
+    loggedOut: false,
+  });
+
   const logOut = () => {
     localStorage.clear();
     setState({
       ...state,
-      loggedOut: true
-    })
-  }
+      loggedOut: true,
+    });
+  };
   return (
     <div id='navbar-container'>
       {state.loggedOut && <Redirect to='/' />}
@@ -83,11 +83,10 @@ const UserNav = () => {
 };
 
 export default function Navbar() {
-
-  return(
+  return (
     <div>
       {localStorage.getItem('token') && <UserNav />}
       {!localStorage.getItem('token') && <MainNav />}
     </div>
-  ) 
+  );
 }

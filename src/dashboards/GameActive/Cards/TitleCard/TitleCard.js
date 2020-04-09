@@ -1,11 +1,22 @@
 import React from 'react';
 import './TitleCard.css';
 
+import { Link, Redirect } from 'react-router-dom';
+
+
 export default function TitleCard(props) {
   return (
-    <div id='gameactive-title-card'>
-      <h1>Game: {props.game.game_name}</h1>
-      <p>{props.game.teamscore + ' | ' + props.game.oppscore} </p>
+    <div>
+    <h3>John Smith</h3>
+    <div id='sidebar-btn'>
+      <Link id='router-link-styles' to='/'>Teams</Link>
+    </div>
+    <div id='sidebar-btn'>
+      <Link id='router-link-styles' to='/pricing'>Upgrade</Link>
+    </div>
+    <div id='sidebar-btn'>
+      <Link id='router-link-styles' to='/support'>Support</Link>
+    </div>
     </div>
   );
 }
