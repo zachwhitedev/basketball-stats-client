@@ -10,18 +10,11 @@ export default function EventCard(props){
   const { state, clearEvent, dispatch, game, team } = props;
 
   const submitEvent = () => {
-    console.log(state)
     if(!state.selectedPlayerId){
       alert('Error: No player selected.')
     } else if(!state.selectedEventId){
       alert('Error: Game event not selected.')
     } else{
-      console.log({
-        one: state.selectedEventId,
-        two: state.selectedPlayerId,
-        three: game.game_id,
-        four: team.id
-      })
       dispatch(addGameEvent(state.selectedPlayerId, game.game_id, team.id, state.selectedEventId));
       clearEvent();
       // begin 'success' animation...

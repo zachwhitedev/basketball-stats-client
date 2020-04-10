@@ -53,7 +53,6 @@ export default function GameActive(props) {
   const clearEvent = () => {
     setState({
       ...state,
-      selectedPlayerId: '',
       selectedEventId: '',
     });
   };
