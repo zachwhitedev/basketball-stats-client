@@ -17,6 +17,9 @@ export default function TitleCard(props) {
     <div id='sidebar-btn'>
       <Link id='router-link-styles' to='/support'>Support</Link>
     </div>
+    <div id='sidebar-btn'>
+      <Link id='router-link-styles'>Logout</Link>
+    </div>
     </div>
   );
 }

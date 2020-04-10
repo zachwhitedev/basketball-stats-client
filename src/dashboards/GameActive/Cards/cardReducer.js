@@ -9,7 +9,7 @@ const defaultState = {
       case 'GET_PLAYERGAME_DATA': {
         return {
           ...state,
-          playerGameData: payload.data.body
+          playerGameData: payload.data.body.playerData
         };
       }
 

@@ -8,8 +8,9 @@ export default function PlayersCard(props) {
 
 
   useEffect(() => {
-    dispatch(getPlayerGame(game.game_id, team.id));
-  })
+    console.log('useEffect, PlayersCard.js')
+    dispatch(getPlayerGame(game.game_id, team.id))
+  }, [team, game])
 
   return (
     <div id='gameactive-players-card'>

@@ -59,6 +59,7 @@ export default function GameActive(props) {
   };
 
   useEffect(() => {
+    console.log('useEffect, GameActive.js')
     const decoded = jwt_decode(localStorage.getItem('token'));
     const userid = decoded.userid;
 
