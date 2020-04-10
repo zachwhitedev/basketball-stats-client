@@ -20,7 +20,7 @@ export default function AddTeamModal(props) {
         ...state,
         validationError: 'Please enter team name.'
       })
-    } else {
+    } else if (localStorage.getItem('token')){
       const decoded = jwt_decode(localStorage.getItem('token'));
       const userid = decoded.userid;
       const newTeam = {
@@ -34,6 +34,8 @@ export default function AddTeamModal(props) {
       })
       dispatch(getUserData(userid));
       props.changeModal();
+    } else {
+      console.log('9999999999')
     }
   }
 

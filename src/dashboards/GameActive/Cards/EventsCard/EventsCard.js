@@ -2,11 +2,12 @@ import React from 'react';
 import './EventCard.css';
 
 import { eventList } from './game-events';
+import { addGameEvent } from '../../gameActiveActions.js';
 import GameEventItem from './GameEventItem/GameEventItem';
 
 
 export default function EventCard(props){
-  const { state, clearEvent } = props;
+  const { state, clearEvent, dispatch, game, team } = props;
 
   const submitEvent = () => {
     console.log(state)
@@ -15,9 +16,15 @@ export default function EventCard(props){
     } else if(!state.selectedEventId){
       alert('Error: Game event not selected.')
     } else{
-      // dispatch addGameEvent here
+      console.log({
+        one: state.selectedEventId,
+        two: state.selectedPlayerId,
+        three: game.game_id,
+        four: team.id
+      })
+      dispatch(addGameEvent(state.selectedPlayerId, game.game_id, team.id, state.selectedEventId));
       clearEvent();
-      alert('Success.')
+      // begin 'success' animation...
     }
   }
   return(

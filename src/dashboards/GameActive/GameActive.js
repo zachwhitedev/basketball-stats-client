@@ -4,8 +4,8 @@ import { Link, Redirect } from 'react-router-dom';
 
 import Navbar from '../../components/Navbar/index';
 
-import PlayersCard from './Cards/PlayersCard/PlayersCard';
-import EventsCard from './Cards/EventsCard/EventsCard';
+import PlayersCard from './Cards/PlayersCard/index';
+import EventsCard from './Cards/EventsCard/index';
 import HistoryCard from './Cards/HistoryCard/HistoryCard';
 import TitleCard from './Cards/TitleCard/TitleCard';
 

@@ -2,6 +2,7 @@ const defaultState = {
   error: '',
   data: {
     players: [],
+    teams: []
   },
   selectedTeam: {
     id: '',

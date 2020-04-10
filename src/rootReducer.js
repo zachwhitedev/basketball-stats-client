@@ -3,12 +3,14 @@ import registerUserReducer from './components/RegisterPage/RegisterUser/register
 import loginPageReducer from './components/LoginPage/loginPageReducer';
 import userDashboardReducer from './dashboards/UserDashboard/userDashboardReducer';
 import modalReducer from './modals/modalReducer';
+import activeGameCardReducer from './dashboards/GameActive/Cards/cardReducer';
 
 const rootReducer = combineReducers({
   registerUser: registerUserReducer,
   loginPage: loginPageReducer,
   userDashboard: userDashboardReducer,
-  modals: modalReducer
+  modals: modalReducer,
+  activeGameCards: activeGameCardReducer
 });
 
 export default rootReducer;

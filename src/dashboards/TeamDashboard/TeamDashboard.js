@@ -18,8 +18,7 @@ export default function TeamDashboard(props) {
   const [state, setState] = useState({
     loading: true,
     addingPlayers: false,
-    addingGame: false,
-    token: localStorage.getItem('token')
+    addingGame: false
   });
   const [teamName, setTeamName] = useState('Team'); // keeps teamname from disappearing when re-loading players
 
@@ -32,7 +31,7 @@ export default function TeamDashboard(props) {
     }
     const pathsArray = window.location.pathname.split('/');
     const teamId = pathsArray[3];
-    const decoded = jwt_decode(state.token);
+    const decoded = jwt_decode(localStorage.getItem('token'));
     const userid = decoded.userid;
     dispatch(getCurrentTeam(userid, teamId));
     setTimeout(() => {
@@ -47,7 +46,7 @@ export default function TeamDashboard(props) {
   const changeModalGames = () => {
     const pathsArray = window.location.pathname.split('/');
     const teamId = pathsArray[3];
-    const decoded = jwt_decode(state.token);
+    const decoded = jwt_decode(localStorage.getItem('token'));
     const userid = decoded.userid;
     dispatch(getCurrentTeam(userid, teamId));
     setTimeout(() => {
@@ -62,7 +61,7 @@ export default function TeamDashboard(props) {
   useEffect(() => {
     console.log('useEffect, TeamDashboard,js, line 23');
     setTeamName(props.selectedTeam.name);
-    const decoded = jwt_decode(state.token);
+    const decoded = jwt_decode(localStorage.getItem('token'));
     const userid = decoded.userid;
     dispatch(getUserData(userid));
 

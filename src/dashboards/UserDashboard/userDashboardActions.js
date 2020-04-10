@@ -37,7 +37,6 @@ export function getCurrentTeam(userid, teamid) {
   };
 }
 
-
 export function getCurrentGame(userid, teamid, gameid) {
   return (dispatch) => {
     const gameRequest = {
@@ -45,10 +44,8 @@ export function getCurrentGame(userid, teamid, gameid) {
       teamid: teamid,
       gameid: gameid
     };
-    axios.post(
-      'https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/getgame',
-    gameRequest
-    ).then(game => {
+    axios.post('https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/getgame', gameRequest)
+    .then(game => {
       dispatch(getCurrentGameHelper(game));
     }).catch(err => console.log(err));
   }
