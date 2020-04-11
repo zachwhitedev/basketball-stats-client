@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import HistoryLogItem from './HistoryLogItem/HistoryLogItem';
 import './HistoryCard.css';
 
 export default function HistoryCard(props){
@@ -53,7 +54,7 @@ export default function HistoryCard(props){
       for(let i=0; i < players.length; i++){
         if(tempEvent.playerid == players[i].id){
           playername = players[i].firstname;
-          updateLog([...eventLog, { player: playername, name: description }])
+          updateLog([{ player: playername, name: description }, ...eventLog])
           return;
         } else continue;
       }
@@ -65,7 +66,7 @@ export default function HistoryCard(props){
         <h3>Event Log</h3>
         {eventLog.map(item => {
           return(
-            <p>{item.player + ' - ' + item.name}</p>
+            <HistoryLogItem player={item.player} description={item.name}/>
           )
         })}
       </div>
