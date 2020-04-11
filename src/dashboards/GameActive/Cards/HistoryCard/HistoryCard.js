@@ -54,19 +54,34 @@ export default function HistoryCard(props){
       for(let i=0; i < players.length; i++){
         if(tempEvent.playerid == players[i].id){
           playername = players[i].firstname;
-          updateLog([{ player: playername, name: description }, ...eventLog])
+          updateLog([{ player: playername, name: description, tempEvent: tempEvent }, ...eventLog])
           return;
         } else continue;
       }
     } else return;
   }, [tempEvent.eventid])
 
+  const removeItem = (evnt) => {
+    let newArray = [];
+    let foundIt = false;
+    for(let i=0; i < eventLog.length; i++){
+      if(eventLog[i].tempEvent.eventid == evnt.eventid && eventLog[i].tempEvent.playerid == evnt.playerid && !foundIt){
+        foundIt = true;
+        continue;
+      } else {
+        newArray.push(eventLog[i]);
+        continue;
+      }
+    }
+    updateLog(newArray);
+  }
+
     return(
         <div id='gameactive-eventlog-card'>
         <h3>Event Log</h3>
         {eventLog.map(item => {
           return(
-            <HistoryLogItem player={item.player} description={item.name}/>
+            <HistoryLogItem player={item.player} description={item.name} tempEvent={item.tempEvent} removeItem={removeItem} />
           )
         })}
       </div>
