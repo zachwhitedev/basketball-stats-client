@@ -1,8 +1,10 @@
-#gameactive-eventlog-card{
-    width: 100%;
-    background-color: rgb(242, 242, 242);
-    border-radius: 6px;
-    box-shadow: 0 0 4px gray;
-    padding: 10px;
-    margin: 0 0 8px 0;
-  }
+#gameactive-eventlog-card {
+  width: 100%;
+  background-color: rgb(242, 242, 242);
+  border-radius: 6px;
+  box-shadow: 0 0 4px gray;
+  padding: 10px;
+  margin: 0 0 8px 0;
+  height: 200px;
+  overflow-y: scroll;
+}

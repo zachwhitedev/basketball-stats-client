@@ -6,7 +6,7 @@ import Navbar from '../../components/Navbar/index';
 
 import PlayersCard from './Cards/PlayersCard/index';
 import EventsCard from './Cards/EventsCard/index';
-import HistoryCard from './Cards/HistoryCard/HistoryCard';
+import HistoryCard from './Cards/HistoryCard/index';
 import SidebarButtons from './Cards/SidebarButtons/SidebarButtons';
 
 import jwt_decode from 'jwt-decode';
