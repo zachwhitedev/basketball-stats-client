@@ -15,15 +15,26 @@ export function getPlayerGameHelper(gamedata){
 export function getPlayerGame(gameid, teamid) {
   return dispatch => {
     const playerGameReq = {
-        gameid: gameid,
-        teamid: teamid
+      gameid: gameid,
+      teamid: teamid
     }
     axios
-      .post('https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/getplayergame', playerGameReq)
-      .then(gamedata => {
-        dispatch(getPlayerGameHelper(gamedata))
-        dispatch(clearTempEvent()); // I call this guy the "lead blocker"
+    .post('https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/getplayergame', playerGameReq)
+    .then(gamedata => {
+      dispatch(getPlayerGameHelper(gamedata));
+      dispatch(clearTempEvent()); 
       })
       .catch(err => console.log(err));
+  };
+}
+
+export function undoGameEvent(evnt) {
+  const copy = evnt;
+  copy.eventid -= 12;
+  return dispatch => {
+    axios
+      .post('https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/undogameevent', copy)
+      .then(data => dispatch(getPlayerGame(evnt.gameid, evnt.teamid)))
+      .catch(err => console.log(err))
   };
 }

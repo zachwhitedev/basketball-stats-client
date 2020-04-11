@@ -86,9 +86,10 @@ export default function TeamDashboard(props) {
             </p>
           </div>
           {props.players &&
-            props.players.map(player => {
+            props.players.map((player, index) => {
               return (
                 <PlayerListItem
+                  key={index}
                   id={player.id}
                   firstname={player.firstname}
                   lastname={player.lastname}

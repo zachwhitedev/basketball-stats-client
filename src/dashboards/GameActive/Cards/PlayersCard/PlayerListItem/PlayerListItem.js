@@ -93,6 +93,78 @@ export default function PlayerListItem(props) {
           pf: state.pf + 1
         })
         break;
+      case 13: 
+        setState({
+          ...state,
+          fg: state.fg - 1
+        })
+        break;
+      case 14: 
+        setState({
+          ...state,
+          nofg: state.nofg - 1
+        })
+        break;
+      case 15: 
+        setState({
+          ...state,
+          trey: state.trey - 1
+        })
+        break;
+      case 16: 
+        setState({
+          ...state,
+          notrey: state.notrey - 1
+        })
+        break;
+      case 17: 
+        setState({
+          ...state,
+          ft: state.ft - 1
+        })
+        break;
+      case 18: 
+        setState({
+          ...state,
+          noft: state.noft - 1
+        })
+        break;
+      case 19: 
+        setState({
+          ...state,
+          reb: state.reb - 1
+        })
+        break;
+      case 20: 
+        setState({
+          ...state,
+          ast: state.ast - 1
+        })
+        break;
+      case 21: 
+        setState({
+          ...state,
+          blk: state.blk - 1
+        })
+        break;
+      case 22: 
+        setState({
+          ...state,
+          stl: state.stl - 1
+        })
+        break;
+      case 23: 
+        setState({
+          ...state,
+          tover: state.tover - 1
+        })
+      break;
+      case 24: 
+        setState({
+          ...state,
+          pf: state.pf - 1
+        })
+        break;
       default:
         console.log('Event type not recognized.')
         break;
@@ -102,7 +174,6 @@ export default function PlayerListItem(props) {
   useEffect(() => {
     if(tempEvent.eventid){
       if(tempEvent.playerid == id){
-        console.log('ding!')
         tempState(tempEvent.eventid)
       }
     }

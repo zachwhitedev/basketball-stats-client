@@ -54,8 +54,8 @@ export default function UserDashboard(props) {
           </div>
           <h1>Your Teams</h1>
           {
-            teams.map((team) => {
-              return <TeamListItem teamname={team.name} teamid={team.id} />;
+            teams.map((team, index) => {
+              return <TeamListItem key={index} teamname={team.name} teamid={team.id} />;
             })
           }
         </div>

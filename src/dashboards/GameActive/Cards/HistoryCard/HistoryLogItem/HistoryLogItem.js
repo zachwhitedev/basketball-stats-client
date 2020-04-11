@@ -4,8 +4,13 @@ import './HistoryLogItem.css';
 export default function HistoryLogItem(props) {
 
   const undoEvent = (evnt) => {
-    // dispatch(undoGameEvent(evnt));
-    props.removeItem(evnt);
+    let blah = evnt;
+    let standin = {
+      eventid: 0
+    }
+    let copy = Object.assign(standin, blah);
+    copy.eventid = blah.eventid + 12;
+    props.removeItem(copy);
   }
 
   return (

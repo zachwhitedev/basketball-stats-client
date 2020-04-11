@@ -48,7 +48,6 @@ export function getCurrentGame(userid, teamid, gameid) {
     axios.post('https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/getgame', gameRequest)
     .then(game => {
       dispatch(getCurrentGameHelper(game));
-      dispatch(clearTempEvent());
     }).catch(err => console.log(err));
   }
 }

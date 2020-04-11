@@ -4,7 +4,7 @@ import jwt_decode from 'jwt-decode';
 
 const axios = require('axios');
 
-function tempGameEvent(gameEvent){
+export function tempGameEvent(gameEvent){
   return {
     type: 'ADD_TEMP_GAME_EVENT',
     payload: gameEvent

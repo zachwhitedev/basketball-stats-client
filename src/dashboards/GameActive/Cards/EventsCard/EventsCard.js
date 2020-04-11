@@ -24,13 +24,14 @@ export default function EventCard(props){
     <div id='gameactive-events-card'>
     <h3 id='game-events-card-title'>Game Events</h3>
     <div id='gameactive-event-buttons'>
-      {eventList.map((event) => {
+      {eventList.map((event, index) => {
         let eventSelected = false;
         if (props.state.selectedEventId == event.id) {
           eventSelected = true;
         }
         return (
           <GameEventItem
+            key={index}
             id={event.id}
             short={event.short}
             long={event.long}

@@ -7,8 +7,8 @@ export default function PlayersCard(props) {
   const { state, players, selectPlayer, dispatch, game, team, playergame, tempEvent } = props;
 
   useEffect(() => {
+    console.log('useEffect, PlayersCard.js');
     if(!tempEvent.eventid){
-      console.log('useEffect, PlayersCard.js');
       dispatch(getPlayerGame(game.game_id, team.id));
     }
   }, [team, game, tempEvent.eventid]);
@@ -32,13 +32,14 @@ export default function PlayersCard(props) {
           <div>TO</div>
           <div>PF</div>
         </div>
-        {players.map((player) => {
+        {players.map((player, index) => {
           let playerSelected = false;
           if (state.selectedPlayerId == player.id) {
             playerSelected = true;
           }
           return (
             <PlayerListItem
+              key={index}
               firstname={player.firstname}
               lastname={player.lastname ? player.lastname : null}
               jersey={player.jersey ? player.jersey : null}

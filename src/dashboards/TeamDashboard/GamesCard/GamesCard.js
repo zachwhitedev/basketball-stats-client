@@ -9,9 +9,10 @@ export default function GamesCard(props) {
         New Game
       </div>
       <h3>Games</h3>
-      {props.games.map((game) => {
+      {props.games.map((game, index) => {
         return (
           <GameListItem
+            key={index}
             name={game.game_name}
             gameid={game.game_id}
             teamid={props.selectedTeam.id}
