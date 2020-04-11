@@ -7,7 +7,7 @@ import Navbar from '../../components/Navbar/index';
 import PlayersCard from './Cards/PlayersCard/index';
 import EventsCard from './Cards/EventsCard/index';
 import HistoryCard from './Cards/HistoryCard/HistoryCard';
-import TitleCard from './Cards/TitleCard/TitleCard';
+import SidebarButtons from './Cards/SidebarButtons/SidebarButtons';
 
 import jwt_decode from 'jwt-decode';
 import {
@@ -74,7 +74,7 @@ export default function GameActive(props) {
       <div id='gameactive-container'>
         {/* <Navbar /> */}
         <div id='gameactive-sidebar'>
-          <TitleCard />
+          <SidebarButtons />
         </div>
         <div id='gameactive-not-sidebar'>
           <div id='gameactive-titlecard'>

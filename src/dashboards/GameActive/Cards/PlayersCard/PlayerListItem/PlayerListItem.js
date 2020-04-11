@@ -131,6 +131,8 @@ export default function PlayerListItem(props) {
     }
   }, [playergame, tempEvent.eventid])
 
+  // ^^ pick something clever for the other parameter... updates once and then not again?
+
   return (
     <div
       id={

@@ -1,10 +1,10 @@
 import React from 'react';
-import './TitleCard.css';
+import './SidebarButtons.css';
 
 import { Link, Redirect } from 'react-router-dom';
 
 
-export default function TitleCard(props) {
+export default function SidebarButtons(props) {
   return (
     <div>
     <h3>John Smith</h3>
