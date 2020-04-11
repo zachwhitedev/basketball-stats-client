@@ -1,7 +1,6 @@
 #gameactive-container {
   margin: 5px 0 50px 0;
   padding: 0 8px;
-  border: 1px solid red;
   display: flex;
   justify-content: space-between;
 }
@@ -23,12 +22,10 @@
   min-width: 180px;
   text-align: center;
   color: white;
-  border: 2px solid orange;
 }
 
 #gameactive-not-sidebar {
   width: 100%;
-  border: 3px solid purple;
 }
 
 .gameactive-card {
@@ -46,7 +43,6 @@
 }
 
 #gameactive-events-and-history {
-  border: 4px solid rgb(9, 169, 6);
   width: 40%;
 }
 

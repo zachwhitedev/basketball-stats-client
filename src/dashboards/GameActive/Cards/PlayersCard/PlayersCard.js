@@ -15,8 +15,23 @@ export default function PlayersCard(props) {
 
   return (
     <div id='gameactive-players-card'>
-      <h3>Players</h3>
+      <h3 id='gameactive-playercard-title'>Player Stats</h3>
       <div>
+        <div id='playergame-top-row'>
+          <div>First</div>
+          <div>Last</div>
+          <div>Jersey</div>
+          <div>PTS</div>
+          <div>FG%</div>
+          <div>3P%</div>
+          <div>FT%</div>
+          <div>REB</div>
+          <div>AST</div>
+          <div>BLK</div>
+          <div>STL</div>
+          <div>TO</div>
+          <div>PF</div>
+        </div>
         {players.map((player) => {
           let playerSelected = false;
           if (state.selectedPlayerId == player.id) {

@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import jwt_decode from 'jwt-decode';
 import './PlayerListItem.css';
-import { deletePlayer } from '../../../../UserDashboard/userDashboardActions';
-import { getPlayerGame } from '../../cardActions';
 
 export default function PlayerListItem(props) {
   const { dispatch, firstname, lastname, jersey, id, selected, playergame, tempEvent } = props;
@@ -146,10 +143,11 @@ export default function PlayerListItem(props) {
       <div id='playercard-row-item'>
         <div>{firstname}</div> 
         <div>{lastname ? lastname : ''}</div>
-        <div>{jersey ? jersey : ''}</div>
+        <div id='player-table-jersey'>{jersey ? jersey : 'N/A'}</div> 
         <div>{(state.fg * 2) + (state.trey * 3) + state.ft}</div>
-        <div>{((state.fg / (state.nofg + state.fg)) * 100).toFixed(0) + '%'}</div>
-        <div>{((state.trey / (state.notrey + state.trey)) * 100).toFixed(0) + '%'}</div>
+        <div>{state.fg > 0 ? ((state.fg / (state.nofg + state.fg)) * 100).toFixed(0) + '%' : 0 + '%'}</div>
+        <div>{state.trey > 0 ? ((state.trey / (state.notrey + state.trey)) * 100).toFixed(0) + '%' : 0 + '%'}</div>
+        <div>{state.ft > 0 ? ((state.ft / (state.ft + state.noft)) * 100).toFixed(0) + '%' : 0 + '%'}</div>
         <div>{state.reb}</div>
         <div>{state.ast}</div>
         <div>{state.blk}</div>
