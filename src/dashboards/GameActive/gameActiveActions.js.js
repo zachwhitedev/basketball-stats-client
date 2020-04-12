@@ -30,9 +30,9 @@ export function addGameEvent(playerid, gameid, teamid, eventid) {
     dispatch(tempGameEvent(gameEvent));
     axios
       .post('https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/addevent', gameEvent)
-      .then(() => {
+      .then(res => {
         // dispatch(getCurrentGame(userid, teamid, gameid));
-        dispatch(getPlayerGame(gameid, teamid))
+        dispatch(getPlayerGame(gameid, teamid));
       })
       .catch(err => console.log(err));
   };

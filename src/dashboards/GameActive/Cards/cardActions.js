@@ -22,6 +22,8 @@ export function getPlayerGame(gameid, teamid) {
     .post('https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/getplayergame', playerGameReq)
     .then(gamedata => {
       dispatch(getPlayerGameHelper(gamedata));
+      const decoded = jwt_decode(localStorage.getItem('token'));
+      dispatch(getCurrentGame(decoded.userid, teamid, gameid))
       dispatch(clearTempEvent()); 
       })
       .catch(err => console.log(err));

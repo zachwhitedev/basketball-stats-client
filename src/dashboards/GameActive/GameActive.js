@@ -8,6 +8,7 @@ import PlayersCard from './Cards/PlayersCard/index';
 import EventsCard from './Cards/EventsCard/index';
 import HistoryCard from './Cards/HistoryCard/index';
 import SidebarButtons from './Cards/SidebarButtons/SidebarButtons';
+import BoxScore from './Cards/BoxScore/BoxScore';
 
 import jwt_decode from 'jwt-decode';
 import {
@@ -16,7 +17,7 @@ import {
 } from '../UserDashboard/userDashboardActions';
 
 export default function GameActive(props) {
-  const { dispatch } = props;
+  const { dispatch, game, players } = props;
 
   const [state, setState] = useState({
     selectedPlayerId: '',
@@ -69,7 +70,7 @@ export default function GameActive(props) {
     dispatch(getCurrentTeam(userid, teamid));
   }, []);
 
-  if (props.game && props.players) {
+  if (game && players) {
     return (
       <div id='gameactive-container'>
         {/* <Navbar /> */}
@@ -77,15 +78,12 @@ export default function GameActive(props) {
           <SidebarButtons />
         </div>
         <div id='gameactive-not-sidebar'>
-          <div id='gameactive-titlecard'>
-            <h3>Game Title</h3>
-            <h4>82 - 77</h4>
-          </div>
+          <BoxScore game={game}/>
           <div id='gameactive-players-events-history-container'>
             <PlayersCard
               state={state}
               selectPlayer={selectPlayer}
-              players={props.players}
+              players={players}
             />
             <div id='gameactive-events-and-history'>
               <EventsCard
