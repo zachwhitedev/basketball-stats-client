@@ -6,7 +6,7 @@ export default function BoxScore(props) {
 
   useEffect(() => {
     console.log('useEffect, BoxScore.js');
-  }, [game])
+  }, [])
 
   if (game) {
     return (
