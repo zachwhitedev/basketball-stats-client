@@ -17,7 +17,7 @@ import {
 } from '../UserDashboard/userDashboardActions';
 
 export default function GameActive(props) {
-  const { dispatch, game, players } = props;
+  const { dispatch, game, players, team } = props;
 
   const [state, setState] = useState({
     selectedPlayerId: '',
@@ -59,7 +59,7 @@ export default function GameActive(props) {
   };
 
   useEffect(() => {
-    console.log('useEffect, GameActive.js')
+    console.log('useEffect, GameActive.js');
     const decoded = jwt_decode(localStorage.getItem('token'));
     const userid = decoded.userid;
 
@@ -78,7 +78,7 @@ export default function GameActive(props) {
           <SidebarButtons />
         </div>
         <div id='gameactive-not-sidebar'>
-          <BoxScore game={game}/>
+          <BoxScore game={game} team={team} dispatch={dispatch} />
           <div id='gameactive-players-events-history-container'>
             <PlayersCard
               state={state}

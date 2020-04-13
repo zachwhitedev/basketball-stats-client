@@ -30,6 +30,7 @@ export function addGameEvent(playerid, gameid, teamid, eventid) {
       teamid: teamid,
       eventid: eventid,
     };
+    console.log(gameEvent)
     dispatch(tempGameEvent(gameEvent));
     axios
       .post(

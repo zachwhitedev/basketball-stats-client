@@ -1,6 +1,6 @@
 #gameactive-titlecard {
     text-align: center;
-    height: 60px;
+    height: 95px;
     width: 70%;
     max-width: 450px;
     background-color: rgb(234, 234, 234);
@@ -8,4 +8,41 @@
     box-shadow: 0 0 4px gray;
     margin: 0 auto 20px auto;
     padding: 0;
+  }
+
+  #gameactive-titlecard-items{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  #teamscore-increment{
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    width: 45px;
+    margin-top: 35px;
+  }
+  #oppscore-increment{
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    width: 45px;
+    margin-top: 35px;
+  }
+  
+  #increment-score-btn{
+    cursor: pointer;
+    background-color: green;
+    border-radius: 2px;
+    box-shadow: 0 0 5px gray;
+    height: 22px;
+    width: 18px;
+  }
+  #decrement-score-btn{
+    cursor: pointer;
+    background-color: rgb(255, 74, 74);
+    border-radius: 2px;
+    box-shadow: 0 0 5px gray;
+    height: 22px;
+    width: 18px;
   }
