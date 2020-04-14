@@ -28,9 +28,9 @@
 
 #nav-logo-title {
   font-family: 'Roboto', sans-serif;
-  margin-left: -2px;
+  margin-left: 2px;
   font-weight: bold;
-  font-size: 28px;
+  font-size: 26px;
   color: rgb(37, 37, 118);
 }
 
@@ -79,12 +79,52 @@
   cursor: pointer;
 }
 
-@media (max-width: 700px) {
-  #nav-logo-title {
+@media (max-width: 780px) {
+
+  #less-link{
     display: none;
   }
 
   #nav-logo-img {
     max-height: 55px;
+  }
+}
+
+@media (max-width: 620px) {
+  
+  #nav-logo-title{
+    font-size: 16px;
+  }
+  
+  #nav-logo{
+    top: 0px;
+    left: 8px;
+  }
+  
+  #nav-logo-img {
+    max-height: 40px;
+  }
+  
+  #login-link{
+    font-size: 16px;
+  }
+  
+  #register-link{
+    margin-right: 10px;
+    border-radius: 4px;
+    background-color: #ef3b24;
+    color: white;
+    padding: 8px 18px;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 400px) {
+
+  #nav-logo-title{
+    display: none;
   }
 }
