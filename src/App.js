@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import {Elements} from '@stripe/react-stripe-js';
-import {loadStripe} from '@stripe/stripe-js';
+// import {Elements} from '@stripe/react-stripe-js';
+// import {loadStripe} from '@stripe/stripe-js';
 import {
   BrowserRouter as Router,
   Switch,
@@ -145,9 +145,7 @@ function App() {
           <SupportPage />
         </Route>
         <Route path='/pricing' exact>
-        <Elements stripe={stripePromise}>
           <PricingPage />
-        </Elements>
         </Route>
         <Route path='/userconfirmation/ipvtw0vfmlvh5fk2s'>
           <ConfirmationPage />
