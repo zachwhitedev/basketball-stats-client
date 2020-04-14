@@ -23,7 +23,7 @@ export function clearTempEvent() {
 export function addGameEvent(playerid, gameid, teamid, eventid) {
   const decoded = jwt_decode(localStorage.getItem('token'));
   const userid = decoded.userid;
-  return () => {
+  return (dispatch) => {
     const gameEvent = {
       playerid: playerid,
       gameid: gameid,
