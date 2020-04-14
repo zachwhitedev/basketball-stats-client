@@ -12,14 +12,26 @@ export default function PricingPage(props) {
   });
 
 
-
-  return (
-    <div id='pricingpage-container'>
-      <Navbar />
-      <div id='pricingpage-content'>
-        <CheckoutForm />
-        <p>Premium accounts not yet available. Coming soon.</p>
+  if(localStorage.getItem('token')){
+    return (
+      <div id='pricingpage-container'>
+        <Navbar />
+        <div id='pricingpage-content'>
+          <p>Test payments (not real)</p>
+          <p>premium = $2.99</p>
+          <CheckoutForm />
+          <p>Premium accounts not yet available. Coming soon.</p>
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return(
+      <div id='pricingpage-container'>
+        <Navbar />
+        <div id='pricingpage-content'>
+          <p>Premium accounts not yet available. Coming soon.</p>
+        </div>
+      </div>
+    )
+  }
 }
