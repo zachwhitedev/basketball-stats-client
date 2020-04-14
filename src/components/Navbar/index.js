@@ -3,9 +3,7 @@ import Navbar from './Navbar';
 
 function mapStoreToProps(store) {
   return {
-    // userEmail: store.seriesFeed.allContent
-    // userId: store.userDashboard
-    userData: store.userData
+    userData: store
   };
 }
 export default connect(mapStoreToProps)(Navbar);
