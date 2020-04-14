@@ -17,7 +17,7 @@ const MainNav = () => {
       </div>
       <div id='nav-link-item'>
         <Link id='less-link' to='/pricing'>
-          Pricing
+          Upgrade
         </Link>
       </div>
       <div id='nav-link-item'>
@@ -70,7 +70,7 @@ const UserNav = () => {
       </div>
       <div id='nav-link-item'>
         <Link id='less-link' to='/pricing'>
-          Pricing
+          Upgrade
         </Link>
       </div>
       <div id='nav-link-item'>
