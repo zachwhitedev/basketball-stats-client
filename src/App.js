@@ -30,7 +30,7 @@ function BackgroundColor() {
   );
 }
 
-const stripePromise = loadStripe('pk_test_2xK8atukOFA9TVCJt215Mvog');
+// const stripePromise = loadStripe('pk_test_2xK8atukOFA9TVCJt215Mvog');
 
 function App() {
   return (

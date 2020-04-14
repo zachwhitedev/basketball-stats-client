@@ -4,15 +4,15 @@ import axios from 'axios';
 // import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
 export default function CheckoutForm() {
-  const stripe = useStripe();
-  const elements = useElements();
+  // const stripe = useStripe();
+  // const elements = useElements();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!stripe || !elements) {
-      return;
-    }
+    // if (!stripe || !elements) {
+    //   return;
+    // }
 
     // axios.get('https://vf8huftlq6.execute-api.us-west-2.amazonaws.com/dev/singlecharge')
     //     .then(async res => {
@@ -62,7 +62,8 @@ export default function CheckoutForm() {
         {/* <CardElement
           options={CARD_ELEMENT_OPTIONS}
         /> */}
-        <button type='submit' disabled={!stripe}>
+        <button type='submit'>
+        {/* <button type='submit' disabled={!stripe}> */}
           Pay
         </button>
       </form>
