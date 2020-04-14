@@ -18,6 +18,7 @@ export default function PricingPage(props) {
       <Navbar />
       <div id='pricingpage-content'>
         <CheckoutForm />
+        <p>Test.</p>
         <p>Premium accounts not yet available. Coming soon.</p>
       </div>
     </div>
