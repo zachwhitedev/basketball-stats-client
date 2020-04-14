@@ -67,7 +67,7 @@ export default function RegisterUser(props) {
     }
   };
 
-  const onChange = e => {
+  const onChange = (e, dispatch) => {
     setState({
       ...state,
       [e.target.name]: e.target.value,
