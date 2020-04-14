@@ -8,7 +8,7 @@ const MainNav = () => {
     <div id='navbar-container'>
       <Link id='nav-logo' to='/'>
         <img id='nav-logo-img' src={basketball} />
-        <h1 id='nav-logo-title'>Testing</h1>
+        <h1 id='nav-logo-title'>Slam Dunk Stats</h1>
       </Link>
       <div id='nav-link-item'>
         <Link id='less-link' to='/support'>
@@ -51,7 +51,7 @@ const UserNav = () => {
       {state.loggedOut && <Redirect to='/' />}
       <Link id='nav-logo' to='/'>
         <img id='nav-logo-img' src={basketball} />
-        <h1 id='nav-logo-title'>Testing</h1>
+        <h1 id='nav-logo-title'>Slam Dunk Stats</h1>
       </Link>
       <div id='nav-link-item'>
         <Link id='login-link' to='/dashboard'>
