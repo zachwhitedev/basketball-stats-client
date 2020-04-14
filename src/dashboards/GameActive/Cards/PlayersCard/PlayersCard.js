@@ -6,7 +6,7 @@ import { getPlayerGame } from '../cardActions';
 export default function PlayersCard(props) {
   const { state, players, selectPlayer, dispatch, game, team, playergame, tempEvent } = props;
 
-  useEffect((dispatch) => {
+  useEffect(() => {
     console.log('useEffect, PlayersCard.js');
     if(!tempEvent.eventid){
       dispatch(getPlayerGame(game.game_id, team.id));
