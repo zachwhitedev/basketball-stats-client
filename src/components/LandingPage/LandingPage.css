@@ -11,7 +11,6 @@
 #landingpage-content{
     display: block;
     margin: 0 auto;
-    width: 70%;
 }
 
 #main-img{
@@ -19,6 +18,9 @@
     margin: 30px auto 0 auto;
     border-radius: 4px;
     box-shadow: 0 0 5px gray;
-    min-width: 300px;
     width: 90%;
+}
+
+@media(max-width: 575px){
+
 }

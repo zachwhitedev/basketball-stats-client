@@ -119,6 +119,9 @@
     font-weight: bold;
     font-size: 18px;
   }
+  #nav-logo-img {
+    display: none;
+  }
 }
 
 @media (max-width: 400px) {
