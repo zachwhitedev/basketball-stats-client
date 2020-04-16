@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import './CheckoutForm.css';
 
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
@@ -44,7 +45,7 @@ export default function CheckoutForm() {
         color: "#32325d",
         fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
         fontSmoothing: "antialiased",
-        fontSize: "16px",
+        fontSize: "18px",
         "::placeholder": {
           color: "#aab7c4",
         },
@@ -57,15 +58,15 @@ export default function CheckoutForm() {
   };
 
   return (
-    <div>
+    <div id='checkout-form'>
       <form onSubmit={handleSubmit}>
         <CardElement
           options={CARD_ELEMENT_OPTIONS}
         />
-        <button type='submit' disabled={!stripe}>
-          Pay
+        <button type='submit' id='upgrade-btn' disabled={!stripe}>
+          UPGRADE
         </button>
       </form>
-    </div>
+      </div>
   );
 }

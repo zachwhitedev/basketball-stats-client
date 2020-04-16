@@ -1,4 +1,4 @@
-#registeruser-page-content{
+#registeruser-page-content {
     margin: 80px auto 60px auto;
     background-color: white;
     border-radius: 4px;
@@ -7,19 +7,19 @@
     color: rgb(0, 0, 48);
 }
 
-#registeruser-form{
+#registeruser-form {
     padding: 8px 4px 30px 0;
     width: 260px;
     margin: 0 auto;
     font-family: 'Roboto', sans-serif;
 }
 
-#registeruser-already-account{
+#registeruser-already-account {
     text-decoration: none;
     color: rgb(45, 86, 199);
 }
 
-#await-confirm{
+#await-confirm {
     padding: 10px;
     width: 280px;
     margin: 0 auto;
@@ -28,7 +28,7 @@
     color: rgb(0, 0, 72);
 }
 
-#continue-btn-small{
+#continue-btn-small {
     background: rgb(242, 44, 0);
     border-radius: 2px;
     padding: 2px 12px;
@@ -36,7 +36,8 @@
     color: white;
     margin-left: 2px;
 }
-#continue-btn-big{
+
+#continue-btn-big {
     background: rgb(242, 44, 0);
     border-radius: 2px;
     padding: 6px;
@@ -48,34 +49,34 @@
     cursor: pointer;
 }
 
-#continue-btn-big:hover{
+#continue-btn-big:hover {
     transform: translateY(-1px);
     box-shadow: 0 2px 5px 0 rgb(165, 165, 165);
 }
 
-#create-your-account{
+#create-your-account {
     font-size: 26px;
     font-weight: bold;
 }
 
-#already-have-account{
+#already-have-account {
     margin-top: -20px;
     font-size: 14px;
     opacity: 70%;
     margin-bottom: 20px;
 }
 
-#registeruser-input-item{
+#registeruser-input-item {
     margin: 0 0 15px 0;
 }
 
-#registeruser-input-label{
+#registeruser-input-label {
     display: block;
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
 }
 
-#registeruser-input{
+#registeruser-input {
     margin: 4px 0 0 0;
     font-family: 'Roboto';
     width: 250px;
@@ -86,16 +87,16 @@
     font-size: 16px;
 }
 
-#registeruser-input:focus{
+#registeruser-input:focus {
     outline: 1px solid rgb(60, 229, 255);
     border: 1px solid rgb(244, 244, 244);
 }
 
-#registeruser-validation-error{
+#registeruser-validation-error {
     color: rgb(255, 68, 68);
 }
 
-#create-account-btn{
+#create-account-btn {
     margin: 14px 0 0 0;
     background: rgb(255, 89, 0);
     color: rgb(255, 255, 255);

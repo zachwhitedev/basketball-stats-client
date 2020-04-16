@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './GameActive.css';
+import { getUserData } from '../../dashboards/UserDashboard/userDashboardActions';
 import { Link, Redirect } from 'react-router-dom';
 
 import Navbar from '../../components/Navbar/index';
@@ -66,6 +67,7 @@ export default function GameActive(props) {
     const pathsArray = window.location.pathname.split('/');
     const teamid = pathsArray[2];
     const gameid = pathsArray[3];
+    dispatch(getUserData(userid));
     dispatch(getCurrentGame(userid, teamid, gameid));
     dispatch(getCurrentTeam(userid, teamid));
   }, []);
@@ -75,7 +77,7 @@ export default function GameActive(props) {
       <div id='gameactive-container'>
         {/* <Navbar /> */}
         <div id='gameactive-sidebar'>
-          <SidebarButtons />
+          <SidebarButtons user={props.user}/>
         </div>
         <div id='gameactive-not-sidebar'>
           <BoxScore game={game} team={team} dispatch={dispatch} />

@@ -5,7 +5,8 @@ function mapStoreToProps(store) {
   return {
     game: store.userDashboard.currentGame,
     players: store.userDashboard.selectedTeam.players,
-    team: store.userDashboard.selectedTeam
+    team: store.userDashboard.selectedTeam,
+    user: store.userDashboard.data
   };
 }
 export default connect(mapStoreToProps)(GameActive);

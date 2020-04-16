@@ -37,3 +37,14 @@
 #gameactive-submit-event-btn:hover{
     background-color: orangered;
 }
+
+@media(max-width: 1020px){
+    #gameactive-events-card{
+        width: 100%;
+    }
+    #gameactive-submit-event-btn{
+        width: 86%;
+        display: block;
+        margin: 10px auto 0 auto;
+    }
+  }
