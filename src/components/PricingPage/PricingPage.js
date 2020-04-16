@@ -25,7 +25,7 @@ export default function PricingPage(props) {
           </ul>
           <p>For a one-time payment of</p>
           <h2>$3.99</h2>
-          <p>Enter card details below:</p>
+          <p>Enter card details below (not real- payments currently in test mode):</p>
           <CheckoutForm />
         </div>
       </div>
