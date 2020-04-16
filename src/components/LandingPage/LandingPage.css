@@ -1,6 +1,7 @@
 #landingpage-container{
     margin: 80px auto 60px auto;
     width: 70%;
+    max-width: 700px;
     background-color: white;
     border-radius: 4px;
     padding: 40px;
