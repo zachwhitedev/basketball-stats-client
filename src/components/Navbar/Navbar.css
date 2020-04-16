@@ -88,6 +88,9 @@
   #nav-logo-img {
     max-height: 55px;
   }
+  #nav-logo-title{
+    display: none;
+  }
 }
 
 @media (max-width: 620px) {
@@ -115,9 +118,6 @@
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     font-size: 18px;
-  }
-  #nav-logo-title{
-    display: none;
   }
 }
 
