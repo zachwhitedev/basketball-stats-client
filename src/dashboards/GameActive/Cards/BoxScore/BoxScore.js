@@ -45,7 +45,7 @@ export default function BoxScore(props) {
               -
             </div>
           </div>
-          <div>
+          <div data-testid="bscore">
             <h3>Game: {game.game_name}</h3>
             <h4>
               {game.teamscore} - {game.oppscore}
